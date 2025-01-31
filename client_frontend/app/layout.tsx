@@ -55,12 +55,12 @@ export default function RootLayout({
   });
 
   return (
-    <SocketContext.Provider value={socket}>
-      <ApolloProvider client={client}>
-        <html lang="en">
-          <body>{children}</body>
-        </html>
-      </ApolloProvider>
-    </SocketContext.Provider>
+    <html lang="en">
+      <body>
+        <SocketContext.Provider value={socket}>
+          <ApolloProvider client={client}>{children}</ApolloProvider>
+        </SocketContext.Provider>
+      </body>
+    </html>
   );
 }

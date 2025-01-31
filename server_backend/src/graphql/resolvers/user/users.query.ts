@@ -14,4 +14,3 @@ export default class UsersResolver {
     }
 }
 
-//om this code is hacked 

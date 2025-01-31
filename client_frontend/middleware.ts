@@ -8,7 +8,7 @@ export function middleware(req: NextRequest) {
   // Check if the request is for a protected route
   if (!token && req.nextUrl.pathname.startsWith('/protected')) {
     // Redirect to the login page if the user is unauthorized
-    return NextResponse.redirect(new URL('/auth/signin', req.url));
+    return NextResponse.redirect(new URL('/', req.url));
   }
 
   // Allow the request to proceed if authorized or if not a protected route
@@ -17,5 +17,5 @@ export function middleware(req: NextRequest) {
 
 // Middleware configuration
 export const config = {
-  matcher: ['/', '/protected/calendar'], // Define the routes to apply middleware to
+  matcher: ['/', '/protected/home'], // Define the routes to apply middleware to
 };

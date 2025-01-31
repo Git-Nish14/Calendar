@@ -1,13 +1,6 @@
-"use client";
 import React from "react";
 
-const teamMembers = [
-  { name: "Disha Keraliya" },
-  { name: "Om Patel" },
-  { name: "Nish Patel" },
-  { name: "Arshi Patel" },
-  { name: "Dhruv Raut" },
-];
+const teamMembers = [{ name: "Nish Patel" }];
 
 const AboutUs: React.FC = () => {
   return (

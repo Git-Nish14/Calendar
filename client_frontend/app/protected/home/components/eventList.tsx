@@ -24,7 +24,7 @@ export default function EventList({ events, router, gotoDate, refetch }: any) {
   useEffect(() => {
     if (!socket) return;
 
-    socket.on("deleteEvent", (event) => {
+    socket.on("deleteEvent", (event: any) => {
       console.log("Event deleted via Socket.io:", event);
       refetch(); // Refresh events
     });

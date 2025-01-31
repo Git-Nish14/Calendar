@@ -17,6 +17,7 @@ export class CreateEventResolver {
         if (!ctx.userId) {
             throw new Error("Not authenticated");
         }
+
         // Ensure user exists before creating an event
         const existingUser = await prisma.user.findUnique({
             where: { id: ctx.userId }
@@ -39,6 +40,9 @@ export class CreateEventResolver {
             },
             include: { user: true } // Ensure user is fetched to avoid null error
         });
+
+        // Emit event to all connected clients
+        ctx.io.emit("newEvent", event);
 
         return event;
     }

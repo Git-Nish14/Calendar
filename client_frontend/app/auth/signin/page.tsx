@@ -15,7 +15,6 @@ interface LoginFormInputs {
   password: string;
 }
 
-// Variants for container and child elements (stagger animation)
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -76,9 +75,9 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (successMessage) {
-      setTimeout(() => {
+      {
         router.push("/protected/home");
-      }, 1000);
+      }
     }
   }, [successMessage, router]);
 

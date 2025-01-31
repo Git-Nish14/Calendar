@@ -19,12 +19,8 @@ export class UpdateEventResolver {
         }
 
         const existingEvent = await prisma.event.findUnique({
-            where: {
-                id,
-            },
-            include: {
-                user: true,
-            },
+            where: { id },
+            include: { user: true },
         });
 
         if (!existingEvent) {
@@ -51,6 +47,9 @@ export class UpdateEventResolver {
             data: updatedEventData,
             include: { user: true },
         });
+
+        // Emit event update to all connected clients
+        ctx.io.emit("updateEvent", updatedEvent);
 
         return updatedEvent;
     }
