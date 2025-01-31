@@ -67,7 +67,6 @@ const CalendarLandingPage = () => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      {/* Hero Section */}
       <section className="relative flex items-center justify-center py-32 bg-gradient-to-br from-teal-600 via-teal-500 to-teal-400">
         <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
         <div className="relative z-10 text-center px-6 sm:px-12 lg:px-20 max-w-5xl">
@@ -97,7 +96,6 @@ const CalendarLandingPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="container px-4 py-24">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -129,7 +127,6 @@ const CalendarLandingPage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="bg-teal-50 py-24">
         <div className="container px-4">
           <h2 className="text-4xl font-bold text-gray-900 mb-16 text-center">
@@ -161,7 +158,6 @@ const CalendarLandingPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="bg-teal-600 text-white py-20">
         <div className="container px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">

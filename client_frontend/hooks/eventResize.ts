@@ -2,7 +2,7 @@ export const handleEventResize = async (
     eventResizeInfo: any,
     updateEvent: any,
     refetch: any,
-    socket: any // Pass Socket.io instance
+    socket: any 
 ) => {
     const { id } = eventResizeInfo.event;
     const start = eventResizeInfo.event.start?.toISOString();
@@ -18,13 +18,12 @@ export const handleEventResize = async (
             variables: {
                 id,
                 title: eventResizeInfo.event.title,
-                description: eventResizeInfo.event.extendedProps?.description || "", // Ensure description exists
+                description: eventResizeInfo.event.extendedProps?.description || "", 
                 start,
                 end,
             },
         });
 
-        // Emit real-time event update
         if (socket) {
             socket.emit("updateEvent", data.updateEvent);
         }

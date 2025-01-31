@@ -5,22 +5,18 @@ export const handleDateClick = async (
 ) => {
   setSelectedEvent(null);
   console.log("Raw Date from FullCalendar:", info.dateStr);
-  // Check the current view type
   const calendarApi = info.view.calendar;
   const currentView = calendarApi.view.type;
   let startTime, endTime;
   if (currentView === "multiMonthYear") {
-    // If in month view, set the event to be an all-day event
     startTime = new Date(info.dateStr);
     endTime = new Date(info.dateStr);
-    endTime.setDate(endTime.getDate() + 1); // End at the start of the next day
+    endTime.setDate(endTime.getDate() + 1); 
   } else if (currentView === "dayGridMonth") {
-    // If in month view, set the event to be an all-day event
     startTime = new Date(info.dateStr);
     endTime = new Date(info.dateStr);
-    endTime.setDate(endTime.getDate() + 1); // End at the start of the next day
+    endTime.setDate(endTime.getDate() + 1); 
   } else {
-    // For week/day view, add a 30-minute timespan
     startTime = new Date(info.dateStr);
     endTime = new Date(startTime.getTime() + 30 * 60 * 1000);
   }

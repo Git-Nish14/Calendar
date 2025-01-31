@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/navigation";
-import { SIGNIN } from "../../graphql/mutations";
+import { SIGNIN } from "../../../graphql/mutations";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { EyeIcon, EyeOffIcon, Calendar } from "lucide-react";
@@ -42,7 +42,7 @@ const Login: React.FC = () => {
   useEffect(() => {
     const token = Cookies.get("token");
     if (token) {
-      router.push("/protected/home");
+      router.push("/home");
     }
   }, [router]);
 
@@ -76,14 +76,13 @@ const Login: React.FC = () => {
   useEffect(() => {
     if (successMessage) {
       {
-        router.push("/protected/home");
+        router.push("/home");
       }
     }
   }, [successMessage, router]);
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Left Side with Animation */}
       <motion.div
         className="w-1/2 flex justify-center items-center bg-teal-600"
         initial={{ x: -100, opacity: 0 }}
@@ -97,7 +96,6 @@ const Login: React.FC = () => {
         />
       </motion.div>
 
-      {/* Right Side Form with Additional Animations */}
       <motion.div
         className="w-1/2 flex justify-center items-center overflow-hidden"
         initial={{ x: 100, opacity: 0 }}
@@ -110,7 +108,6 @@ const Login: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Heading */}
           <motion.h2
             className="flex items-center justify-center text-2xl font-bold text-teal-600 mb-6"
             variants={itemVariants}
@@ -119,7 +116,6 @@ const Login: React.FC = () => {
             Welcome Back!
           </motion.h2>
 
-          {/* Loading / Error / Success Messages */}
           {loading && (
             <motion.p
               className="text-teal-500 text-center"
@@ -146,7 +142,6 @@ const Login: React.FC = () => {
             </motion.p>
           )}
 
-          {/* Login Form */}
           <motion.form
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-5 mt-5"

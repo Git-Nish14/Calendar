@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_USER } from "@/app/graphql/queries";
+import { GET_USER } from "@/graphql/queries";
 import { useRouter } from "next/navigation";
-import Calendar from "./components/calendar";
-import EventList from "./components/eventList";
-import Form from "./components/form";
-import { SocketContext } from "@/app/layout"; // Import SocketContext
+import Calendar from "../../components/calendar";
+import EventList from "../../components/eventList";
+import Form from "../../components/form";
+import { SocketContext } from "@/app/layout";
 
 interface EventFormData {
   title: string;
@@ -18,7 +18,7 @@ interface EventFormData {
 export default function CalendarPage() {
   const { data, loading, error, refetch } = useQuery(GET_USER);
   const router = useRouter();
-  const socket = useContext(SocketContext); // Get Socket.io instance
+  const socket = useContext(SocketContext);
 
   const [formData, setFormData] = useState<EventFormData>({
     title: "",
@@ -32,23 +32,22 @@ export default function CalendarPage() {
     () => () => {}
   );
 
-  // Listen for real-time updates from Socket.io
   useEffect(() => {
     if (!socket) return;
 
     socket.on("newEvent", () => {
       console.log("New event received via Socket.io");
-      refetch(); // Refresh events
+      refetch();
     });
 
     socket.on("updateEvent", () => {
       console.log("Event updated via Socket.io");
-      refetch(); // Refresh events
+      refetch();
     });
 
     socket.on("deleteEvent", () => {
       console.log("Event deleted via Socket.io");
-      refetch(); // Refresh events
+      refetch();
     });
 
     return () => {
@@ -72,7 +71,6 @@ export default function CalendarPage() {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Left Sidebar (Form & Event List) */}
       <div className="w-1/4 p-6 h-full bg-white shadow-lg rounded-lg flex flex-col">
         <Form
           data={data}
@@ -90,7 +88,6 @@ export default function CalendarPage() {
         />
       </div>
 
-      {/* Calendar Section */}
       <div className="w-3/4 h-full p-9">
         <Calendar
           events={events}

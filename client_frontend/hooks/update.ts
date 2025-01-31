@@ -6,7 +6,7 @@ export const handleUpdate = async (
     setSelectedEvent: any,
     setFormData: any,
     refetch: any,
-    socket: any // Pass Socket.io instance
+    socket: any 
 ) => {
     if (!validateEventTimes()) {
         alert("Start time must be earlier than end time.");
@@ -30,12 +30,10 @@ export const handleUpdate = async (
             },
         });
 
-        // Emit real-time event update
         if (socket) {
             socket.emit("updateEvent", data.updateEvent);
         }
 
-        // Reset form state
         setSelectedEvent(null);
         setFormData({ title: "", description: "", start: "", end: "" });
       await refetch();

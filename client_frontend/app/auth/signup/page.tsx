@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { SIGNUP } from "@/app/graphql/mutations";
+import { SIGNUP } from "@/graphql/mutations";
 import Link from "next/link";
 import { EyeIcon, EyeOffIcon, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
@@ -17,7 +17,6 @@ interface SignupFormInputs {
   password: string;
 }
 
-// Animation Variants (staggered entrance)
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -65,15 +64,14 @@ const Signup: React.FC = () => {
 
   useEffect(() => {
     if (successMessage) {
-      setTimeout(() => {
-        router.push("/protected/home");
-      }, 0);
+      {
+        router.push("/home");
+      }
     }
   }, [successMessage, router]);
 
   return (
     <div className="flex h-screen bg-gray-50">
-      {/* Left Side with matching color (#2D4D59) + Motion Animation */}
       <motion.div
         className="w-1/2 flex justify-center items-center bg-teal-600"
         initial={{ x: -100, opacity: 0 }}
@@ -87,7 +85,6 @@ const Signup: React.FC = () => {
         />
       </motion.div>
 
-      {/* Right Side with a subtle gradient, matching the left side photo's color scheme */}
       <motion.div
         className="w-1/2 flex justify-center items-center overflow-hidden bg-gradient-to-br from-white to-[#2D4D59]/10"
         initial={{ x: 100, opacity: 0 }}
@@ -100,7 +97,6 @@ const Signup: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Title */}
           <motion.h2
             className="flex items-center justify-center text-2xl font-bold text-[#009689] mb-6"
             variants={itemVariants}
@@ -109,7 +105,6 @@ const Signup: React.FC = () => {
             Welcome to Calendo!
           </motion.h2>
 
-          {/* Loading / Error / Success Messages */}
           {loading && (
             <motion.p
               className="text-[#009689] text-center"
@@ -136,7 +131,6 @@ const Signup: React.FC = () => {
             </motion.p>
           )}
 
-          {/* Signup Form */}
           <motion.form
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-5 mt-5"
@@ -144,7 +138,6 @@ const Signup: React.FC = () => {
             initial="hidden"
             animate="visible"
           >
-            {/* First Name */}
             <motion.div variants={itemVariants}>
               <input
                 type="text"
@@ -165,7 +158,6 @@ const Signup: React.FC = () => {
               )}
             </motion.div>
 
-            {/* Last Name */}
             <motion.div variants={itemVariants}>
               <input
                 type="text"
@@ -186,7 +178,6 @@ const Signup: React.FC = () => {
               )}
             </motion.div>
 
-            {/* Email */}
             <motion.div variants={itemVariants}>
               <input
                 type="email"
@@ -211,7 +202,6 @@ const Signup: React.FC = () => {
               )}
             </motion.div>
 
-            {/* Password */}
             <motion.div className="relative" variants={itemVariants}>
               <input
                 type={passwordVisible ? "text" : "password"}

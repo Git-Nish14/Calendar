@@ -4,12 +4,10 @@ export const handleEventDelete = async (
     setSelectedEvent: any,
     setFormData: any,
     refetch: any,
-    socket: any // Pass Socket.io instance
+    socket: any 
 ) => {
     try {
         await deleteEvent({ variables: { id: selectedEvent.id } });
-        
-        // Emit real-time event deletion
         if (socket) {
             socket.emit("deleteEvent", { id: selectedEvent.id });
         }

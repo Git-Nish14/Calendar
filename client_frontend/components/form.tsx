@@ -3,13 +3,9 @@ import { useMutation } from "@apollo/client";
 import { handleEventDelete } from "../hooks/eventDelete";
 import { handleSubmit } from "../hooks/submit";
 import { handleUpdate } from "../hooks/update";
-import {
-  CREATE_EVENT,
-  DELETE_EVENT,
-  UPDATE_EVENT,
-} from "@/app/graphql/mutations";
+import { CREATE_EVENT, DELETE_EVENT, UPDATE_EVENT } from "@/graphql/mutations";
 import { useContext } from "react";
-import { SocketContext } from "@/app/layout"; // Import Socket.io Context
+import { SocketContext } from "@/app/layout";
 
 export default function Form({
   data,
@@ -22,7 +18,7 @@ export default function Form({
   const [updateEvent] = useMutation(UPDATE_EVENT);
   const [createEvent] = useMutation(CREATE_EVENT);
   const [deleteEvent] = useMutation(DELETE_EVENT);
-  const socket = useContext(SocketContext); // Get Socket.io instance
+  const socket = useContext(SocketContext);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -59,7 +55,7 @@ export default function Form({
                   socket
                 );
 
-                if (newEvent) socket?.emit("newEvent", newEvent); // Emit real-time event creation
+                if (newEvent) socket?.emit("newEvent", newEvent);
               }
         }
         className="mt-4 space-y-4 flex-1"
@@ -113,7 +109,7 @@ export default function Form({
                   socket
                 );
 
-                if (updatedEvent) socket?.emit("updateEvent", updatedEvent); // Emit real-time event update
+                if (updatedEvent) socket?.emit("updateEvent", updatedEvent);
               }}
               className="w-full bg-blue-600 text-white p-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none transition duration-200"
             >
@@ -130,7 +126,7 @@ export default function Form({
                   refetch,
                   socket
                 );
-                socket?.emit("deleteEvent", { id: selectedEvent.id }); // Emit real-time event deletion
+                socket?.emit("deleteEvent", { id: selectedEvent.id });
               }}
               className="w-full bg-red-600 text-white p-2 rounded-lg mt-2 hover:bg-red-700 focus:outline-none transition duration-200"
             >

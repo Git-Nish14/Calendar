@@ -2,7 +2,7 @@ export const handleEventDrop = async (
     eventDropInfo: any,
     updateEvent: any,
     refetch: any,
-    socket: any // Pass Socket.io instance
+    socket: any 
   ) => {
     const { id } = eventDropInfo.event;
     const start = eventDropInfo.event.start?.toISOString();
@@ -18,13 +18,11 @@ export const handleEventDrop = async (
             variables: {
                 id,
                 title: eventDropInfo.event.title,
-                description: eventDropInfo.event.extendedProps?.description || "", // Ensure description exists
+                description: eventDropInfo.event.extendedProps?.description || "", 
                 start,
                 end,
             },
         });
-  
-        // Emit real-time event update
         if (socket) {
             socket.emit("updateEvent", data.updateEvent);
         }

@@ -6,7 +6,7 @@ export const handleSubmit = async (
     data: any,
     setFormData: any,
     refetch: any,
-    socket: any // Pass Socket.io instance
+    socket: any 
   ) => {
     e.preventDefault();
     
@@ -27,16 +27,14 @@ export const handleSubmit = async (
         const { data: eventData } = await createEvent({
             variables: {
                 userId: data?.user?.id,
-                start: new Date(start + "Z").toISOString(), // Ensure it's ISO format
-                end: new Date(end + "Z").toISOString(), // Ensure it's ISO format
+                start: new Date(start + "Z").toISOString(), 
+                end: new Date(end + "Z").toISOString(), 
                 description,
                 title,
             },
         });
   
         console.log("Event created:", eventData.createEvent);
-  
-        // Emit real-time event creation
         if (socket) {
             socket.emit("newEvent", eventData.createEvent);
         }

@@ -9,7 +9,7 @@ export const handleSelect = async (
   setFormData({
     title: "",
     description: "",
-    start: startTime.toISOString().slice(0, 16), // Store in ISO format
+    start: startTime.toISOString().slice(0, 16), 
     end: endTime.toISOString().slice(0, 16),
   });
 };
