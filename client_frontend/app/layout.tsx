@@ -50,6 +50,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/calendo.jpg" />
+      </head>
       <body>
         <SocketContext.Provider value={socket}>
           <ApolloProvider client={client}>{children}</ApolloProvider>

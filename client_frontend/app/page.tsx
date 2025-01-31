@@ -80,7 +80,7 @@ const CalendarLandingPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a
-              href="/auth/signin"
+              href="/auth/signup"
               className="group flex items-center justify-center gap-3 bg-white text-teal-600 px-8 py-4 rounded-full hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Get Started
