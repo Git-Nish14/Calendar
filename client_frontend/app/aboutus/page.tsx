@@ -1,62 +1,146 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import Particles from "react-tsparticles";
+import { Engine } from "tsparticles-engine";
+import { loadSlim } from "tsparticles-slim";
 
-const teamMembers = [{ name: "Nish Patel" }];
+interface AboutMeProps {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+  contactEmail: string;
+}
 
-const AboutUs: React.FC = () => {
+const AboutMe: React.FC<AboutMeProps> = ({
+  name,
+  role,
+  bio,
+  image,
+  contactEmail,
+}) => {
+  const particlesInit = async (engine: Engine) => {
+    await loadSlim(engine);
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-6">
-      <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          About Us
-        </h2>
-        <p className="text-gray-600 text-center mb-6">
-          Welcome to{" "}
-          <span className="text-[#00b5b8] font-semibold">Calendo</span>, where
-          organization meets innovation. Our mission is to revolutionize the way
-          individuals and businesses manage their time, providing an intuitive
-          and powerful calendar solution that enhances productivity and
-          collaboration.
-        </p>
+    <div className="relative flex items-center justify-center min-h-screen bg-gray-100 p-6 overflow-hidden">
+      {/* Live Animated Background */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          fullScreen: { enable: false },
+          background: { color: "#f3f4f6" },
+          particles: {
+            number: { value: 80, density: { enable: true, area: 800 } },
+            color: { value: "#00b5b8" },
+            shape: { type: "circle" },
+            opacity: { value: 0.4, random: true },
+            size: { value: 3, random: true },
+            move: { enable: true, speed: 1.5, direction: "top", random: true },
+            links: {
+              enable: true,
+              distance: 150,
+              color: "#00b5b8",
+              opacity: 0.4,
+              width: 1,
+            },
+          },
+          detectRetina: true,
+        }}
+        className="absolute inset-0 w-full h-full"
+      />
 
-        <h3 className="text-xl font-semibold text-gray-700 mt-6">
-          Meet Our Team
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center bg-gray-50 p-4 rounded-lg shadow-md"
-            >
-              <h4 className="mt-3 text-lg font-semibold text-gray-800">
-                {member.name}
-              </h4>
-            </div>
-          ))}
+      {/* Content Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="w-full max-w-3xl p-10 bg-white rounded-3xl shadow-2xl backdrop-blur-lg relative z-10"
+      >
+        {/* Profile Section */}
+        <div className="flex flex-col items-center text-center">
+          {image && (
+            <motion.img
+              src={image}
+              alt={name}
+              className="w-32 h-32 rounded-full object-cover shadow-lg"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            />
+          )}
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-4xl font-bold text-gray-800 mt-4"
+          >
+            {name}
+          </motion.h2>
+          <p className="text-lg text-gray-600">{role}</p>
         </div>
 
-        <h3 className="text-xl font-semibold text-gray-700 mt-6">Contact Us</h3>
-        <p className="text-gray-600 mt-2">
-          Have questions? Reach out to us at{" "}
+        {/* Bio Section */}
+        <motion.p
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="text-lg text-gray-600 text-center mt-6"
+        >
+          {bio}
+        </motion.p>
+
+        {/* Contact Section */}
+        <h3 className="text-2xl font-semibold text-gray-700 text-center mt-6">
+          Contact Me
+        </h3>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="text-gray-600 text-center mt-2"
+        >
+          Feel free to reach out at{" "}
           <a
-            href="mailto:support@calendo.com"
+            href={`mailto:${contactEmail}`}
             className="text-[#00b5b8] font-medium underline"
           >
-            support@techifive.com
+            {contactEmail}
           </a>
           .
-        </p>
+        </motion.p>
 
+        {/* Back to Home Button */}
         <div className="text-center mt-6">
-          <a
+          <motion.a
             href="/"
-            className="inline-block px-6 py-2 text-white bg-[#00b5b8] rounded-lg hover:bg-[#369A9A] transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-6 py-3 text-white bg-[#00b5b8] rounded-lg hover:bg-[#369A9A] transition duration-300 shadow-md"
           >
             Back to Home
-          </a>
+          </motion.a>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-export default AboutUs;
+// Example usage
+const AboutMePage: React.FC = () => {
+  return (
+    <AboutMe
+      name="Nish Patel"
+      role="Software Developer & Tech Enthusiast"
+      bio="I am passionate about building intuitive and powerful web applications. I specialize in modern web technologies such as React, Next.js, and TypeScript. My mission is to create impactful solutions that enhance productivity and user experiences."
+      image="/Nish.jpg"
+      contactEmail="nishpatel.cse@gmail.com"
+    />
+  );
+};
+
+export default AboutMePage;

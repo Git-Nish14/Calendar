@@ -1,5 +1,4 @@
 "use client";
-
 import "./globals.css";
 import {
   ApolloClient,
@@ -9,17 +8,17 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Cookies from "js-cookie";
-import { io, Socket } from "socket.io-client";
+import io, { Socket } from "socket.io-client";
 import React, { createContext, useEffect, useState } from "react";
 
-export const SocketContext = createContext<Socket | null>(null);
+export const SocketContext = createContext<typeof Socket | null>(null);
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [socket, setSocket] = useState<typeof Socket | null>(null);
 
   useEffect(() => {
     const newSocket = io("http://localhost:4000");

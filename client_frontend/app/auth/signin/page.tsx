@@ -38,14 +38,6 @@ const Login: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    const token = Cookies.get("token");
-    if (token) {
-      router.push("/home");
-    }
-  }, [router]);
-
   const {
     register,
     handleSubmit,

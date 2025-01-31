@@ -3,19 +3,19 @@ import type { NextRequest } from 'next/server';
 
 // Middleware function for global authentication check
 export function middleware(req: NextRequest) {
-  const token = req.cookies.get('token'); // Retrieve the token from cookies
+  const token = req.cookies.get('token');
 
-  // Check if the request is for a protected route
-  if (!token && req.nextUrl.pathname.startsWith('/protected')) {
-    // Redirect to the login page if the user is unauthorized
+  if (!token && req.nextUrl.pathname.startsWith('/home')) {
     return NextResponse.redirect(new URL('/', req.url));
   }
+  
+  if (token && req.nextUrl.pathname.startsWith('/auth')) {
+    return NextResponse.redirect(new URL('/home', req.url));
+  }
 
-  // Allow the request to proceed if authorized or if not a protected route
   return NextResponse.next();
 }
 
-// Middleware configuration
 export const config = {
-  matcher: ['/', '/protected/home'], // Define the routes to apply middleware to
+  matcher: ['/', '/home/:path*', '/auth/:path*'],
 };
