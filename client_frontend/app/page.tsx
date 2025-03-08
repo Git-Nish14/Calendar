@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   Calendar,
   Users,
@@ -20,27 +22,27 @@ const CalendarLandingPage = () => {
 
   const services = [
     {
-      icon: <Calendar className="w-12 h-12 text-blue-600" />,
+      icon: <Calendar className="w-12 h-12 text-blue-500" />,
       title: "Flexible Views",
       description: "Switch between Day, Week, and Month views seamlessly.",
     },
     {
-      icon: <Users className="w-12 h-12 text-blue-600" />,
+      icon: <Users className="w-12 h-12 text-blue-500" />,
       title: "Event Management",
       description:
         "Drag, drop, and edit events with intuitive sidebar controls.",
     },
     {
-      icon: <Clock className="w-12 h-12 text-blue-600" />,
+      icon: <Clock className="w-12 h-12 text-blue-500" />,
       title: "Instant Updates",
       description:
         "Live event modifications reflected instantly across devices.",
     },
     {
-      icon: <Share2 className="w-12 h-12 text-blue-600" />,
+      icon: <Share2 className="w-12 h-12 text-blue-500" />,
       title: "About",
       description:
-        "Empowering teams and individuals with intuitive, real-time event scheduling.",
+        "Empowering teams and individuals with real-time scheduling.",
     },
   ];
 
@@ -58,85 +60,105 @@ const CalendarLandingPage = () => {
       content: "The best scheduling tool I've ever used. Simple yet powerful.",
       rating: 5,
     },
+    {
+      name: "Lisa Thompson",
+      role: "Event Coordinator",
+      content: "Planning events has never been easier. A must-have tool!",
+      rating: 5,
+    },
+    {
+      name: "David Lee",
+      role: "Startup Founder",
+      content: "Incredible UI and seamless sync between devices. Love it!",
+      rating: 5,
+    },
   ];
 
   return (
-    <div
-      className={`min-h-screen bg-gradient-to-br from-gray-200 to-blue-400 transition-opacity duration-500 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
-    >
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-400 transition-opacity duration-500">
       {/* Hero Section */}
-      <section className="relative flex items-center justify-center py-32 bg-gradient-to-br from-gray-200 to-blue-400">
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-        <div className="relative z-10 text-center px-6 sm:px-12 lg:px-20 max-w-5xl">
-          <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight text-white">
+      <motion.section
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative flex items-center justify-center py-32 bg-gradient-to-br from-blue-200 to-blue-500 text-white"
+      >
+        <div className="text-center px-6 sm:px-12 lg:px-20 max-w-5xl">
+          <h1 className="text-5xl lg:text-7xl font-bold mb-8">
             Revolutionize Your <span className="text-blue-100">Schedule</span>
           </h1>
-          <p className="text-xl lg:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-            A smart calendar platform for effortless personal and professional
-            scheduling. Manage your events with a simple, real-time solution
-            designed to boost productivity.
+          <p className="text-xl lg:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto">
+            A smart calendar platform for seamless scheduling.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.1 }}
               href="/auth/signin"
-              className="group flex items-center justify-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-full shadow-lg"
             >
-              Get Started
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
+              Get Started <ChevronRight className="w-5 h-5" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
               href="/aboutus"
-              className="flex items-center justify-center gap-3 bg-blue-700/30 text-white px-8 py-4 rounded-full hover:bg-blue-700/40 transition-all duration-300 backdrop-blur-sm"
+              className="flex items-center justify-center gap-3 bg-blue-700/30 text-white px-8 py-4 rounded-full"
             >
-              About US
-            </a>
+              About Us
+            </motion.a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Features Section */}
-      <section id="features" className="container px-4 py-24">
+      {/* Features Section with Scroll Animation */}
+      <section className="container px-4 py-24">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold text-gray-900">
             Powerful Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Designed to transform how you plan, collaborate, and manage your
-            time with intuitive tools and real-time synchronization.
-          </p>
         </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 text-center leading-relaxed">
-                {service.description}
-              </p>
-            </div>
-          ))}
+          {services.map((service, index) => {
+            const { ref, inView } = useInView({
+              triggerOnce: true,
+              threshold: 0.2,
+            });
+            return (
+              <motion.div
+                key={index}
+                ref={ref}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all"
+              >
+                <div className="flex justify-center mb-6">{service.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 text-center">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-center">
+                  {service.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section with Scroll Animation */}
       <section className="bg-blue-50 py-24">
         <div className="container px-4">
-          <h2 className="text-4xl font-bold text-gray-900 mb-16 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
             What Our Users Say
           </h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-md">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.3 }}
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
@@ -148,31 +170,13 @@ const CalendarLandingPage = () => {
                 <p className="text-gray-700 mb-6 italic">
                   "{testimonial.content}"
                 </p>
-                <div>
-                  <p className="font-semibold text-gray-900">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-gray-600">{testimonial.role}</p>
-                </div>
-              </div>
+                <p className="font-semibold text-gray-900">
+                  {testimonial.name}
+                </p>
+                <p className="text-gray-600">{testimonial.role}</p>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Call-to-Action Section */}
-      <section className="bg-blue-600 text-white py-20">
-        <div className="container px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">
-            Ready to Transform Your Scheduling?
-          </h2>
-          <a
-            href="/auth/signin"
-            className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Get Started Now
-            <ArrowRight className="w-5 h-5" />
-          </a>
         </div>
       </section>
     </div>

@@ -26,17 +26,17 @@ const AboutMe: React.FC<AboutMeProps> = ({
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gray-100 p-6 overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-400 p-6 overflow-hidden">
       {/* Live Animated Background */}
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
           fullScreen: { enable: false },
-          background: { color: "#f3f4f6" },
+          background: { color: "#dbeafe" },
           particles: {
             number: { value: 80, density: { enable: true, area: 800 } },
-            color: { value: "#00b5b8" },
+            color: { value: "#2563eb" },
             shape: { type: "circle" },
             opacity: { value: 0.4, random: true },
             size: { value: 3, random: true },
@@ -44,7 +44,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
             links: {
               enable: true,
               distance: 150,
-              color: "#00b5b8",
+              color: "#2563eb",
               opacity: 0.4,
               width: 1,
             },
@@ -107,7 +107,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
           Feel free to reach out at{" "}
           <a
             href={`mailto:${contactEmail}`}
-            className="text-[#00b5b8] font-medium underline"
+            className="text-blue-600 font-medium underline"
           >
             {contactEmail}
           </a>
@@ -120,7 +120,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
             href="/"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-6 py-3 text-white bg-[#00b5b8] rounded-lg hover:bg-[#369A9A] transition duration-300 shadow-md"
+            className="inline-block px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md"
           >
             Back to Home
           </motion.a>
