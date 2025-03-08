@@ -33,7 +33,7 @@ export default function Form({
   return (
     <div>
       <h1 className="text-2xl font-bold text-gray-800">
-        Welcome {data?.user?.firstName}
+        Welcome {data?.user?.firstName}!
       </h1>
       <h4 className="font-semibold text-gray-600 mt-4">
         {selectedEvent ? "Update Event:" : "Create New Event:"}

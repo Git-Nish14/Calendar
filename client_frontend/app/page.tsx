@@ -6,10 +6,9 @@ import {
   Users,
   Clock,
   Share2,
-  Info,
+  Star,
   ArrowRight,
   ChevronRight,
-  Star,
 } from "lucide-react";
 
 const CalendarLandingPage = () => {
@@ -21,24 +20,24 @@ const CalendarLandingPage = () => {
 
   const services = [
     {
-      icon: <Calendar className="w-12 h-12 text-teal-600" />,
+      icon: <Calendar className="w-12 h-12 text-blue-600" />,
       title: "Flexible Views",
       description: "Switch between Day, Week, and Month views seamlessly.",
     },
     {
-      icon: <Users className="w-12 h-12 text-teal-600" />,
+      icon: <Users className="w-12 h-12 text-blue-600" />,
       title: "Event Management",
       description:
         "Drag, drop, and edit events with intuitive sidebar controls.",
     },
     {
-      icon: <Clock className="w-12 h-12 text-teal-600" />,
+      icon: <Clock className="w-12 h-12 text-blue-600" />,
       title: "Instant Updates",
       description:
         "Live event modifications reflected instantly across devices.",
     },
     {
-      icon: <Share2 className="w-12 h-12 text-teal-600" />,
+      icon: <Share2 className="w-12 h-12 text-blue-600" />,
       title: "About",
       description:
         "Empowering teams and individuals with intuitive, real-time event scheduling.",
@@ -63,15 +62,16 @@ const CalendarLandingPage = () => {
 
   return (
     <div
-      className={`min-h-screen bg-gray-50 transition-opacity duration-500 ${
+      className={`min-h-screen bg-gradient-to-br from-gray-200 to-blue-400 transition-opacity duration-500 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <section className="relative flex items-center justify-center py-32 bg-gradient-to-br from-teal-600 via-teal-500 to-teal-400">
+      {/* Hero Section */}
+      <section className="relative flex items-center justify-center py-32 bg-gradient-to-br from-gray-200 to-blue-400">
         <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
         <div className="relative z-10 text-center px-6 sm:px-12 lg:px-20 max-w-5xl">
           <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight text-white">
-            Revolutionize Your <span className="text-teal-100">Schedule</span>
+            Revolutionize Your <span className="text-blue-100">Schedule</span>
           </h1>
           <p className="text-xl lg:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed">
             A smart calendar platform for effortless personal and professional
@@ -80,15 +80,15 @@ const CalendarLandingPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a
-              href="/auth/signup"
-              className="group flex items-center justify-center gap-3 bg-white text-teal-600 px-8 py-4 rounded-full hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              href="/auth/signin"
+              className="group flex items-center justify-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Get Started
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="/aboutus"
-              className="flex items-center justify-center gap-3 bg-teal-700/30 text-white px-8 py-4 rounded-full hover:bg-teal-700/40 transition-all duration-300 backdrop-blur-sm"
+              className="flex items-center justify-center gap-3 bg-blue-700/30 text-white px-8 py-4 rounded-full hover:bg-blue-700/40 transition-all duration-300 backdrop-blur-sm"
             >
               About US
             </a>
@@ -96,6 +96,7 @@ const CalendarLandingPage = () => {
         </div>
       </section>
 
+      {/* Features Section */}
       <section id="features" className="container px-4 py-24">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -127,7 +128,8 @@ const CalendarLandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-teal-50 py-24">
+      {/* Testimonials Section */}
+      <section className="bg-blue-50 py-24">
         <div className="container px-4">
           <h2 className="text-4xl font-bold text-gray-900 mb-16 text-center">
             What Our Users Say
@@ -158,14 +160,15 @@ const CalendarLandingPage = () => {
         </div>
       </section>
 
-      <section className="bg-teal-600 text-white py-20">
+      {/* Call-to-Action Section */}
+      <section className="bg-blue-600 text-white py-20">
         <div className="container px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">
             Ready to Transform Your Scheduling?
           </h2>
           <a
             href="/auth/signin"
-            className="inline-flex items-center gap-3 bg-white text-teal-600 px-8 py-4 rounded-full hover:bg-teal-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Get Started Now
             <ArrowRight className="w-5 h-5" />
