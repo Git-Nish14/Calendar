@@ -58,7 +58,7 @@ const CalendarLandingPage = () => {
       name: "Michael Chen",
       role: "Freelancer",
       content: "The best scheduling tool I've ever used. Simple yet powerful.",
-      rating: 5,
+      rating: 4.5,
     },
     {
       name: "Lisa Thompson",
@@ -70,7 +70,7 @@ const CalendarLandingPage = () => {
       name: "David Lee",
       role: "Startup Founder",
       content: "Incredible UI and seamless sync between devices. Love it!",
-      rating: 5,
+      rating: 4,
     },
   ];
 
