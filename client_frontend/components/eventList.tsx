@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { handleEventLogout } from "../hooks/logout";
 import { DELETE_EVENT } from "@/graphql/mutations";
 import { useEffect, useContext } from "react";
-import { SocketContext } from "@/app/layout";
+import { SocketContext } from "@/app/SocketProviderWrapper";
 
 export default function EventList({ events, router, gotoDate, refetch }: any) {
   const [deleteEvent] = useMutation(DELETE_EVENT);

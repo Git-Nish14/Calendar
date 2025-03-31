@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Calendar from "../../components/calendar";
 import EventList from "../../components/eventList";
 import Form from "../../components/form";
-import { SocketContext } from "@/app/layout";
+import { SocketContext } from "@/app/SocketProviderWrapper";
 
 interface EventFormData {
   title: string;

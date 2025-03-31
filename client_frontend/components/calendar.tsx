@@ -13,7 +13,7 @@ import { useMutation } from "@apollo/client";
 import { UPDATE_EVENT } from "@/graphql/mutations";
 import { cellStyle } from "../hooks/cellStyle";
 import { useEffect, useRef, useContext } from "react";
-import { SocketContext } from "@/app/layout";
+import { SocketContext } from "@/app/SocketProviderWrapper";
 
 export default function Calendar({
   events,

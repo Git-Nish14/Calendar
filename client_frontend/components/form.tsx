@@ -5,7 +5,7 @@ import { handleSubmit } from "../hooks/submit";
 import { handleUpdate } from "../hooks/update";
 import { CREATE_EVENT, DELETE_EVENT, UPDATE_EVENT } from "@/graphql/mutations";
 import { useContext } from "react";
-import { SocketContext } from "@/app/layout";
+import { SocketContext } from "@/app/SocketProviderWrapper";
 
 export default function Form({
   data,
