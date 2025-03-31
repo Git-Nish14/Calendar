@@ -56,7 +56,7 @@ const CalendarLandingPage = () => {
       content:
         "This calendar revolutionized how our team coordinates meetings. The intuitive interface makes scheduling a breeze.",
       rating: 5,
-      image: "/api/placeholder/64/64", // Placeholder for user image
+      image: "/testimonial-1.jpg",
     },
     {
       name: "Michael Chen",
@@ -64,7 +64,7 @@ const CalendarLandingPage = () => {
       content:
         "The best scheduling tool I've ever used. Simple yet powerful. I can manage multiple clients effortlessly.",
       rating: 4,
-      image: "/api/placeholder/64/64", // Placeholder for user image
+      image: "/testimonial-2.jpg",
     },
     {
       name: "Lisa Thompson",
@@ -72,7 +72,7 @@ const CalendarLandingPage = () => {
       content:
         "Planning events has never been easier. A must-have tool for anyone in the events industry!",
       rating: 5,
-      image: "/api/placeholder/64/64", // Placeholder for user image
+      image: "/testimonial-3.jpg",
     },
     {
       name: "David Lee",
@@ -80,7 +80,7 @@ const CalendarLandingPage = () => {
       content:
         "Incredible UI and seamless sync between devices. This tool has saved our team countless hours of back-and-forth.",
       rating: 4,
-      image: "/api/placeholder/64/64", // Placeholder for user image
+      image: "/testimonial-4.jpg",
     },
   ];
 
@@ -90,8 +90,6 @@ const CalendarLandingPage = () => {
     "Seamless integration with popular tools",
     "Works across all devices",
   ];
-
-  // useInView hooks
   const { ref: servicesRef, inView: servicesInView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -149,7 +147,7 @@ const CalendarLandingPage = () => {
             <div className="md:w-1/2">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-lg mx-auto">
                 <Image
-                  src="/api/placeholder/640/480"
+                  src="/landing.png"
                   alt="Calendar dashboard preview"
                   width={640}
                   height={480}
@@ -174,15 +172,7 @@ const CalendarLandingPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 className="mt-8"
-              >
-                <Link
-                  href="/features"
-                  className="inline-flex items-center gap-2 text-indigo-600 font-medium"
-                >
-                  Learn more about our features{" "}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
+              ></motion.div>
             </div>
           </div>
         </div>
@@ -294,15 +284,12 @@ const CalendarLandingPage = () => {
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/auth/signup"
-              className="inline-flex items-center justify-center gap-2 bg-white text-indigo-700 px-6 md:px-8 py-3 md:py-4 rounded-lg shadow-lg font-medium hover:bg-gray-50 transition-all"
+              href="/auth/signin"
+              className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-6 md:px-8 py-3 md:py-4 rounded-lg shadow-lg font-medium hover:bg-gray-50 transition-all"
             >
-              Start Free Trial <ChevronRight className="w-5 h-5" />
+              Get Started <ChevronRight className="w-5 h-5" />
             </Link>
           </motion.div>
-          <p className="mt-4 text-sm text-indigo-200">
-            No credit card required. 14-day free trial.
-          </p>
         </div>
       </section>
 
@@ -314,123 +301,13 @@ const CalendarLandingPage = () => {
               <h3 className="font-bold text-white mb-4">Product</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link
-                    href="/features"
-                    className="hover:text-white transition-colors"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/pricing"
-                    className="hover:text-white transition-colors"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/integrations"
-                    className="hover:text-white transition-colors"
-                  >
-                    Integrations
-                  </Link>
+                  <p>
+                    © {new Date().getFullYear()} Calendar App. All rights
+                    reserved by Nish Patel.
+                  </p>
                 </li>
               </ul>
             </div>
-            <div>
-              <h3 className="font-bold text-white mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/blog"
-                    className="hover:text-white transition-colors"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides"
-                    className="hover:text-white transition-colors"
-                  >
-                    Guides
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/help"
-                    className="hover:text-white transition-colors"
-                  >
-                    Help Center
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-white mb-4">Company</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/about"
-                    className="hover:text-white transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/careers"
-                    className="hover:text-white transition-colors"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-white transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-white mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/privacy"
-                    className="hover:text-white transition-colors"
-                  >
-                    Privacy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms"
-                    className="hover:text-white transition-colors"
-                  >
-                    Terms
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/security"
-                    className="hover:text-white transition-colors"
-                  >
-                    Security
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-            <p>
-              © {new Date().getFullYear()} Calendar App. All rights reserved.
-            </p>
           </div>
         </div>
       </footer>
