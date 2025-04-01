@@ -26,8 +26,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-blue-400 p-6 overflow-hidden">
-      {/* Live Animated Background */}
+    <div className="relative flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-600 to-purple-700 p-6 overflow-hidden">
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -35,8 +34,8 @@ const AboutMe: React.FC<AboutMeProps> = ({
           fullScreen: { enable: false },
           background: { color: "#dbeafe" },
           particles: {
-            number: { value: 80, density: { enable: true, area: 800 } },
-            color: { value: "#2563eb" },
+            number: { value: 60, density: { enable: true, area: 800 } },
+            color: { value: "#7c3aed" },
             shape: { type: "circle" },
             opacity: { value: 0.4, random: true },
             size: { value: 3, random: true },
@@ -44,7 +43,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
             links: {
               enable: true,
               distance: 150,
-              color: "#2563eb",
+              color: "#7c3aed",
               opacity: 0.4,
               width: 1,
             },
@@ -54,90 +53,55 @@ const AboutMe: React.FC<AboutMeProps> = ({
         className="absolute inset-0 w-full h-full"
       />
 
-      {/* Content Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="w-full max-w-3xl p-10 bg-white rounded-3xl shadow-2xl backdrop-blur-lg relative z-10"
+        className="w-full max-w-4xl p-10 bg-white rounded-3xl shadow-2xl backdrop-blur-lg relative z-10 text-center"
       >
-        {/* Profile Section */}
-        <div className="flex flex-col items-center text-center">
-          {image && (
-            <motion.img
-              src={image}
-              alt={name}
-              className="w-32 h-32 rounded-full object-cover shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            />
-          )}
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl font-bold text-gray-800 mt-4"
-          >
-            {name}
-          </motion.h2>
-          <p className="text-lg text-gray-600">{role}</p>
-        </div>
+        {image && (
+          <motion.img
+            src={image}
+            alt={name}
+            className="w-28 h-28 rounded-full object-cover shadow-xl mx-auto"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          />
+        )}
 
-        {/* Bio Section */}
-        <motion.p
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-lg text-gray-600 text-center mt-6"
+        <h2 className="text-4xl font-bold text-gray-800 mt-6">{name}</h2>
+        <p className="text-lg text-gray-600 mb-6">{role}</p>
+
+        <p className="text-gray-700 text-lg leading-relaxed mb-8">{bio}</p>
+
+        <a
+          href={`mailto:${contactEmail}`}
+          className="text-blue-600 font-medium underline mb-8 block"
         >
-          {bio}
-        </motion.p>
+          {contactEmail}
+        </a>
 
-        {/* Contact Section */}
-        <h3 className="text-2xl font-semibold text-gray-700 text-center mt-6">
-          Contact Me
-        </h3>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-gray-600 text-center mt-2"
+        <motion.a
+          href="/"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-block px-8 py-3 bg-indigo-700 text-white rounded-full shadow-md hover:bg-indigo-800 transition duration-300"
         >
-          Feel free to reach out at{" "}
-          <a
-            href={`mailto:${contactEmail}`}
-            className="text-blue-600 font-medium underline"
-          >
-            {contactEmail}
-          </a>
-          .
-        </motion.p>
-
-        {/* Back to Home Button */}
-        <div className="text-center mt-6">
-          <motion.a
-            href="/"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition duration-300 shadow-md"
-          >
-            Back to Home
-          </motion.a>
-        </div>
+          Back to Home
+        </motion.a>
       </motion.div>
     </div>
   );
 };
 
-// Example usage
 const AboutMePage: React.FC = () => {
   return (
     <AboutMe
       name="Nish Patel"
-      role="Software Developer & Tech Enthusiast"
-      bio="I am passionate about building intuitive and powerful web applications. I specialize in modern web technologies such as React, Next.js, and TypeScript. My mission is to create impactful solutions that enhance productivity and user experiences."
-      image="/Nish.jpg"
+      role="Software Developer"
+      bio="I am passionate about building intuitive and powerful web applications. I specialize in modern web technologies such as React, Next.js, and TypeScript. My mission is to create impactful solutions that enhance productivity and user experiences.."
+      image="/profile-img.png"
       contactEmail="nishpatel.cse@gmail.com"
     />
   );

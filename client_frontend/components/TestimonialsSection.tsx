@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
                 ))}
               </div>
               <p className="text-gray-700 italic mb-4">
-                "{testimonial.content}"
+                {`"{testimonial.content}"`}
               </p>
             </motion.div>
           ))}

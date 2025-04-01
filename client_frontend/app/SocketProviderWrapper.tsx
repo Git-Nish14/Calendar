@@ -13,7 +13,7 @@ export const SocketProviderWrapper = ({
   const [socket, setSocket] = useState<typeof Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:4000");
+    const newSocket = io("https://calendar-mv5n.onrender.com/graphql");
     setSocket(newSocket);
 
     return () => {

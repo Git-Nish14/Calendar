@@ -26,6 +26,16 @@ const Footer = () => {
           </p>
         </div>
 
+        {/* Contact Link */}
+        <div className="w-full md:w-auto text-center md:text-right">
+          <Link
+            href="/contact"
+            className="text-indigo-600 hover:text-indigo-800 transition-colors font-bold"
+          >
+            Contact Us
+          </Link>
+        </div>
+
         {/* Scroll to Top Button - Bottom Positioned for Mobile */}
         <button
           onClick={scrollToTop}

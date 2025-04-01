@@ -16,7 +16,7 @@ export const ApolloProviderWrapper = ({
   children: React.ReactNode;
 }) => {
   const httpLink = createHttpLink({
-    uri: "http://localhost:4000/graphql",
+    uri: "https://calendar-mv5n.onrender.com/graphql",
   });
 
   const authLink = setContext((_, { headers }) => {

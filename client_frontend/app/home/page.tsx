@@ -9,6 +9,7 @@ import Form from "../../components/form";
 import { SocketContext } from "@/app/SocketProviderWrapper";
 
 interface EventFormData {
+  id: string;
   title: string;
   description: string;
   start: string;
@@ -21,13 +22,16 @@ export default function CalendarPage() {
   const socket = useContext(SocketContext);
 
   const [formData, setFormData] = useState<EventFormData>({
+    id: "",
     title: "",
     description: "",
     start: "",
     end: "",
   });
 
-  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [selectedEvent, setSelectedEvent] = useState<EventFormData | null>(
+    null
+  );
   const [gotoDate, setGotoDate] = useState<(date: string | Date) => void>(
     () => () => {}
   );
@@ -61,7 +65,7 @@ export default function CalendarPage() {
   if (error) return <p className="text-red-500">{error.message}</p>;
 
   const events =
-    data?.user?.events?.map((event: any) => ({
+    data?.user?.events?.map((event: EventFormData) => ({
       id: event.id,
       description: event.description,
       title: event.title,
