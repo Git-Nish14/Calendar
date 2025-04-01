@@ -39,20 +39,9 @@ export default function CalendarPage() {
   useEffect(() => {
     if (!socket) return;
 
-    socket.on("newEvent", () => {
-      console.log("New event received via Socket.io");
-      refetch();
-    });
-
-    socket.on("updateEvent", () => {
-      console.log("Event updated via Socket.io");
-      refetch();
-    });
-
-    socket.on("deleteEvent", () => {
-      console.log("Event deleted via Socket.io");
-      refetch();
-    });
+    socket.on("newEvent", () => refetch());
+    socket.on("updateEvent", () => refetch());
+    socket.on("deleteEvent", () => refetch());
 
     return () => {
       socket.off("newEvent");
@@ -74,8 +63,8 @@ export default function CalendarPage() {
     })) || [];
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      <div className="w-1/4 p-6 h-full bg-white shadow-lg rounded-lg flex flex-col">
+    <div className="page-container flex flex-col md:flex-row min-h-screen bg-gray-100 overflow-y-auto">
+      <div className="sidebar w-full md:w-1/4 p-4 bg-white shadow-lg rounded-lg flex flex-col overflow-y-auto mb-4 md:mb-0">
         <Form
           data={data}
           selectedEvent={selectedEvent}
@@ -92,7 +81,7 @@ export default function CalendarPage() {
         />
       </div>
 
-      <div className="w-3/4 h-full p-9">
+      <div className="main-content w-full md:w-3/4 p-4">
         <Calendar
           events={events}
           data={data}

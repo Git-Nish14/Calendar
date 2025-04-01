@@ -64,37 +64,68 @@ export default function Calendar({
   }, [socket, refetch]);
 
   return (
-    <FullCalendar
-      ref={calendarRef}
-      plugins={[
-        dayGridPlugin,
-        interactionPlugin,
-        timeGridPlugin,
-        multiMonthPlugin,
-      ]}
-      headerToolbar={{
-        left: "prev,next today",
-        center: "title",
-        right: "multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay",
-      }}
-      dayCellDidMount={(info) => cellStyle(info)}
-      timeZone="UTC"
-      height="100%"
-      selectable={true}
-      editable={true}
-      eventResizableFromStart={true}
-      events={[...events, ...festivals]}
-      eventClick={(info) =>
-        handleEventClick(info, data, setSelectedEvent, setFormData)
-      }
-      eventDrop={(eventDropInfo) =>
-        handleEventDrop(eventDropInfo, updateEvent, refetch, socket)
-      }
-      dateClick={(info) => handleDateClick(info, setFormData, setSelectedEvent)}
-      select={(info) => handleSelect(info, setFormData)}
-      eventResize={(eventResizeInfo) =>
-        handleEventResize(eventResizeInfo, updateEvent, refetch, socket)
-      }
-    />
+    <div className="w-full h-full bg-white shadow-lg rounded-lg p-4 sm:p-6">
+      <div className=" h-full max-h-[calc(100vh-180px)] sm:overflow-y-auto sm:overflow-x-hidden overflow-x-auto">
+        <FullCalendar
+          ref={calendarRef}
+          plugins={[
+            dayGridPlugin,
+            interactionPlugin,
+            timeGridPlugin,
+            multiMonthPlugin,
+          ]}
+          headerToolbar={{
+            left: "prev,next today",
+            center: "title",
+            right: "multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay",
+          }}
+          dayCellDidMount={(info) => cellStyle(info)}
+          timeZone="UTC"
+          height="auto"
+          selectable={true}
+          editable={true}
+          eventResizableFromStart={true}
+          events={[...events, ...festivals]}
+          eventClick={(info) =>
+            handleEventClick(info, data, setSelectedEvent, setFormData)
+          }
+          eventDrop={(eventDropInfo) =>
+            handleEventDrop(eventDropInfo, updateEvent, refetch, socket)
+          }
+          dateClick={(info) =>
+            handleDateClick(info, setFormData, setSelectedEvent)
+          }
+          select={(info) => handleSelect(info, setFormData)}
+          eventResize={(eventResizeInfo) =>
+            handleEventResize(eventResizeInfo, updateEvent, refetch, socket)
+          }
+          initialView={
+            window.innerWidth < 768 ? "dayGridMonth" : "multiMonthYear"
+          }
+          contentHeight="auto"
+          dayHeaderFormat={{
+            weekday: "short",
+            month: "numeric",
+            day: "numeric",
+          }}
+          eventContent={(arg) => (
+            <div
+              className="whitespace-normal break-words text-xs max-w-full overflow-hidden"
+              style={{ whiteSpace: "normal" }}
+            >
+              {arg.event.title}
+            </div>
+          )}
+          views={{
+            dayGrid: {
+              dayMaxEventRows: 3,
+            },
+            multiMonthYear: {
+              multiMonthMaxColumns: window.innerWidth < 1024 ? 1 : 3,
+            },
+          }}
+        />
+      </div>
+    </div>
   );
 }

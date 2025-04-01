@@ -31,11 +31,11 @@ export default function Form({
   };
 
   return (
-    <div>
+    <div className="p-4 bg-white rounded-lg shadow-md space-y-4">
       <h1 className="text-2xl font-bold text-gray-800">
         Welcome {data?.user?.firstName}!
       </h1>
-      <h4 className="font-semibold text-gray-600 mt-4">
+      <h4 className="font-semibold text-gray-600">
         {selectedEvent ? "Update Event:" : "Create New Event:"}
       </h4>
 
@@ -58,7 +58,7 @@ export default function Form({
                 if (newEvent) socket?.emit("newEvent", newEvent);
               }
         }
-        className="mt-4 space-y-4 flex-1"
+        className="space-y-4"
       >
         <input
           type="text"
@@ -66,7 +66,7 @@ export default function Form({
           placeholder="Event Title"
           value={formData.title}
           onChange={handleInputChange}
-          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
         />
         <input
           type="text"
@@ -74,22 +74,22 @@ export default function Form({
           placeholder="Event Description"
           value={formData.description}
           onChange={handleInputChange}
-          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
         />
-        <div className="flex space-x-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <input
             type="datetime-local"
             name="start"
             value={formData.start}
             onChange={handleInputChange}
-            className="w-1/2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            className="w-full sm:w-1/2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           />
           <input
             type="datetime-local"
             name="end"
             value={formData.end}
             onChange={handleInputChange}
-            className="w-1/2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            className="w-full sm:w-1/2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           />
         </div>
 
@@ -111,7 +111,7 @@ export default function Form({
 
                 if (updatedEvent) socket?.emit("updateEvent", updatedEvent);
               }}
-              className="w-full bg-blue-600 text-white p-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none transition duration-200"
+              className="w-full bg-blue-600 text-white p-3 rounded-md mt-4 hover:bg-blue-700 focus:outline-none transition duration-200"
             >
               Update Event
             </button>
@@ -128,7 +128,7 @@ export default function Form({
                 );
                 socket?.emit("deleteEvent", { id: selectedEvent.id });
               }}
-              className="w-full bg-red-600 text-white p-2 rounded-lg mt-2 hover:bg-red-700 focus:outline-none transition duration-200"
+              className="w-full bg-red-600 text-white p-3 rounded-md mt-2 hover:bg-red-700 focus:outline-none transition duration-200"
             >
               Delete Event
             </button>
@@ -136,7 +136,7 @@ export default function Form({
         ) : (
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none transition duration-200"
+            className="w-full bg-blue-600 text-white p-3 rounded-md mt-4 hover:bg-blue-700 focus:outline-none transition duration-200"
           >
             Add Event
           </button>
