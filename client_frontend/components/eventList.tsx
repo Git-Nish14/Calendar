@@ -35,11 +35,9 @@ export default function EventList({ events, router, gotoDate, refetch }: any) {
 
   return (
     <>
-      <div className="mt-4 flex-1 overflow-y-auto max-h-[400px] bg-white shadow-lg rounded-lg p-4 sm:p-6">
-        <h4 className="font-semibold text-gray-700 mb-2 text-center">
-          Your Events:
-        </h4>
-        <div className="overflow-y-auto max-h-[300px] sm:max-h-[500px] bg-gray-100 rounded-lg p-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+      <div className="mt-4 flex-1 overflow-hidden">
+        <h4 className="font-semibold text-gray-700 mb-2">Your Events:</h4>
+        <div className="overflow-y-auto max-h-[250px] bg-gray-100 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 p-4">
           {events.length === 0 ? (
             <div className="flex justify-center items-center h-full text-lg text-gray-600">
               No events to display
@@ -50,43 +48,45 @@ export default function EventList({ events, router, gotoDate, refetch }: any) {
                 <li
                   key={event.id}
                   onClick={() => handleListItemClick(event)}
-                  className="border border-gray-300 p-4 rounded-lg hover:shadow-md hover:bg-gray-100 transition duration-300 cursor-pointer flex justify-between items-start"
+                  className="border border-gray-300 p-3 rounded-lg hover:shadow-md hover:bg-gray-100 transition duration-300 flex justify-between items-center cursor-pointer select-none"
                 >
-                  <div className="flex-1">
+                  <div>
                     <strong className="text-lg text-gray-800">
                       {event.title}
-                    </strong>
-                    <p className="text-sm text-gray-700 mt-1 mb-2">
+                    </strong>{" "}
+                    <br />
+                    <span className="text-lg text-gray-800">
                       {event.description}
-                    </p>
-                    <div className="text-xs text-gray-600">
-                      <span>
-                        Start:{" "}
-                        {new Intl.DateTimeFormat("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        }).format(new Date(event.start))}
-                      </span>
-                      <br />
-                      <span>
-                        End:{" "}
-                        {new Intl.DateTimeFormat("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                          hour: "2-digit",
-                          minute: "2-digit",
-                          hour12: true,
-                        }).format(new Date(event.end))}
-                      </span>
-                    </div>
+                    </span>
+                    <br />
+                    <span className="text-gray-600 text-sm">
+                      {new Intl.DateTimeFormat("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        weekday: "short",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                        timeZone: "UTC",
+                      }).format(new Date(event.start))}
+                    </span>
+                    <br />
+                    <span className="text-gray-600 text-sm">
+                      {new Intl.DateTimeFormat("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        weekday: "short",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                        timeZone: "UTC",
+                      }).format(new Date(event.end))}
+                    </span>
                   </div>
                   <button
-                    className="ml-4 p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition duration-300 transform hover:scale-110"
+                    className="w-8 h-8 flex items-center justify-center bg-red-500 rounded-full hover:bg-red-600 hover:scale-110 transition duration-300 flex-shrink-0"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleListItemDelete(event.id);
@@ -109,7 +109,7 @@ export default function EventList({ events, router, gotoDate, refetch }: any) {
 
       <button
         onClick={() => handleEventLogout(router)}
-        className="w-full bg-red-500 text-white p-3 rounded-lg mt-6 hover:bg-red-600 transition duration-200"
+        className="w-full bg-red-500 text-white p-3 rounded-lg mt-6 hover:bg-red-600 focus:outline-none transition duration-200"
       >
         Log out
       </button>
