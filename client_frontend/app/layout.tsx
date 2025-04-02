@@ -1,12 +1,11 @@
-// app/layout.tsx
 import "./globals.css";
 import React from "react";
 import { ApolloProviderWrapper } from "./ApolloProviderWrapper";
 import { SocketProviderWrapper } from "./SocketProviderWrapper";
 
 export const metadata = {
-  title: "Calendo",
-  description: "Notion Calendar Clone",
+  title: "Calendo | Nish Patel",
+  description: "Notion Calendar Clone designed by Nish Patel",
 };
 
 export default function RootLayout({
@@ -18,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/calendo.jpg" />
+        <meta name="apple-mobile-web-app-title" content="Calendo" />
       </head>
       <body>
         <SocketProviderWrapper>
