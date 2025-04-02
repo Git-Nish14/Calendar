@@ -112,7 +112,7 @@ We are building a Calendar Application similar to Notion, which allows users to 
 This project is licensed under the MIT License.
 
 ## Contact
-For any queries or issues, feel free to reach out via GitHub issues or email at `your.email@example.com`.
+For any queries or issues, feel free to reach out via GitHub issues or email at `nishpatel.cse@gmail.com`.
 
 ---
 ### References
