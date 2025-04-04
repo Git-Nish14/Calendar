@@ -140,7 +140,8 @@ export const featureContent = {
     ctaSection: {
       title: "Ready to Transform Your Scheduling?",
       description: "Join thousands of professionals who have switched to Calendo for a more intuitive, flexible calendar experience.",
-      link: "/auth/signin"
+      link: "/auth/signin",
+      text: "Get Started"
     }
   };
   

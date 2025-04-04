@@ -122,7 +122,7 @@ const Navbar: React.FC = () => {
               </motion.div>
             </div>
           ))}
-          <Link href="/auth/signin" className="relative">
+          <Link href={navbarContent.buttons.signIn.href} className="relative">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -181,7 +181,7 @@ const Navbar: React.FC = () => {
                   )}
                 </motion.div>
               ))}
-              <Link href="/auth/signin">
+              <Link href={navbarContent.buttons.signIn.href}>
                 <motion.button
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}

@@ -357,7 +357,8 @@ const FeaturesPage = () => {
                 href={featureContent.ctaSection.link}
                 className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-lg shadow-lg font-medium hover:bg-gray-100 transition-all w-full"
               >
-                Get Started <ArrowRight className="w-5 h-5" />
+                {featureContent.ctaSection.text}{" "}
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </motion.div>
           </div>

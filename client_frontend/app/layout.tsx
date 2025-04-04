@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/calendo.jpg" />
+        <link rel="icon" />
         <meta name="apple-mobile-web-app-title" content="Calendo" />
       </head>
       <body>

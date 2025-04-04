@@ -90,7 +90,8 @@ const Contact: React.FC = () => {
               type="submit"
               className="w-full md:w-auto px-8 py-3 bg-indigo-700 text-white font-semibold rounded-full shadow-md hover:bg-indigo-800 transition"
             >
-              Send Message <ArrowRight className="inline ml-2" size={18} />
+              {contactContent.form.button.text}{" "}
+              <ArrowRight className="inline ml-2" size={18} />
             </motion.button>
           </form>
 
@@ -104,7 +105,7 @@ const Contact: React.FC = () => {
                   onClick={() => router.push("/")} // Redirects to home page
                   className="w-full md:w-auto px-8 py-3 bg-indigo-700 text-white font-semibold rounded-full shadow-md hover:bg-indigo-800 transition"
                 >
-                  Return Home
+                  {contactContent.redirect.success.text}
                 </motion.button>
               )}
             </div>

@@ -17,7 +17,9 @@ interface EventFormData {
 }
 
 export default function CalendarPage() {
-  const { data, loading, error, refetch } = useQuery(GET_USER);
+  const { data, loading, error, refetch } = useQuery(GET_USER, {
+    fetchPolicy: "network-only",
+  });
   const router = useRouter();
   const socket = useContext(SocketContext);
 
