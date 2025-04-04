@@ -1,42 +1,42 @@
 "use client";
 import React, { useState } from "react";
 import { Calendar, Users, Shield, Share2, Zap, Clock } from "lucide-react";
-import { homeFeatureContent } from "@/lib/content/homefeature";
+import { homeContent, featuresList } from "@/lib/content/home";
 const services = [
   {
     icon: <Calendar className="w-7 h-7 text-indigo-600" />,
-    title: homeFeatureContent.services[0].title,
-    description: homeFeatureContent.services[0].description,
+    title: featuresList[0].title,
+    description: featuresList[0].description,
     color: "indigo",
   },
   {
     icon: <Users className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: homeFeatureContent.services[1].title,
-    description: homeFeatureContent.services[1].description,
+    title: featuresList[1].title,
+    description: featuresList[1].description,
     color: "indigo",
   },
   {
     icon: <Shield className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: homeFeatureContent.services[2].title,
-    description: homeFeatureContent.services[2].description,
+    title: featuresList[2].title,
+    description: featuresList[2].description,
     color: "indigo",
   },
   {
     icon: <Share2 className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: homeFeatureContent.services[3].title,
-    description: homeFeatureContent.services[3].description,
+    title: featuresList[3].title,
+    description: featuresList[3].description,
     color: "indigo",
   },
   {
     icon: <Zap className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: homeFeatureContent.services[4].title,
-    description: homeFeatureContent.services[4].description,
+    title: featuresList[4].title,
+    description: featuresList[4].description,
     color: "indigo",
   },
   {
     icon: <Clock className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: homeFeatureContent.services[5].title,
-    description: homeFeatureContent.services[5].description,
+    title: featuresList[5].title,
+    description: featuresList[5].description,
     color: "indigo",
   },
 ];
@@ -56,11 +56,11 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-indigo-800">
-            {homeFeatureContent.section.title}
+            {homeContent.featuresTitle}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {homeFeatureContent.section.description}
+            {homeContent.featuresDescription}
           </p>
         </div>
 

@@ -1,0 +1,138 @@
+export const heroContent = {
+    animationText: {
+      fullText: "Revolutionize Your Schedule",
+    },
+    description: "A smart calendar platform designed for modern teams and professionals.",
+    buttons: [
+      {
+        text: "Get Started",
+        href: "/auth/signin",
+      },
+      {
+        text: "About",
+        href: "/aboutus",
+      },
+    ],
+  };
+  
+  export const benefitsContent = {
+    section: {
+      title: "Why Choose Our Calendar?",
+      subtitle: "Simplified Scheduling",
+      description: "Our calendar solution helps you take control of your time with powerful features designed for professionals.",
+    },
+    image: {
+      src: "/landing.png",
+      alt: "Calendar dashboard preview",
+      label: "New Features",
+    },
+    benefits: [
+      {
+        text: "Boost productivity by 30%",
+        description: "Our intelligent algorithms optimize your schedule for deep work and minimize interruptions",
+      },
+      {
+        text: "Works across all devices",
+        description: "Seamless experience on desktop, tablet, and mobile with real-time synchronization",
+      },
+      {
+        text: "Data Secure with Us",
+        description: "Enterprise-grade encryption and compliance with global data protection standards",
+      },
+    ],
+  };
+  
+  export const homeFeatureContent = {
+  section: {
+    title: "Elevate Your Productivity",
+    description:
+      "Our cutting-edge features transform how you manage time and collaborate, giving you the edge in today's fast-paced environment.",
+  },
+  services: [
+    {
+      title: "Intelligent Calendar",
+      description:
+        "Dynamic views with AI-powered scheduling suggestions and time management insights.",
+    },
+    {
+      title: "Collaborative Workspaces",
+      description:
+        "Create dedicated team spaces with custom permissions and real-time presence indicators.",
+    },
+    {
+      title: "Enterprise Security",
+      description:
+        "End-to-end encryption with compliance certifications and detailed access logs.",
+    },
+    {
+      title: "Smart Sharing",
+      description:
+        "Context-aware sharing options with customizable visibility and integration hooks.",
+    },
+    {
+      title: "Productivity Insights",
+      description:
+        "Visualize your productivity patterns with personalized optimization recommendations.",
+    },
+    {
+      title: "Time Tracking",
+      description:
+        "Effortlessly track time spent on projects with automatic categorization and reporting.",
+    },
+  ],
+};
+
+export const testimonialContent = {
+    sectionTitle: "Trusted by Industry Leaders",
+    sectionSubtitle: "Join thousands of satisfied professionals who have transformed their scheduling experience with our innovative solution",
+    testimonials: [
+      {
+        name: "Sarah Johnson",
+        role: "Project Manager",
+        company: "TechCorp Solutions",
+        content: "This calendar revolutionized how our team coordinates meetings. The intuitive interface makes scheduling a breeze, and the analytics dashboard provides valuable insights into our productivity patterns.",
+        rating: 5,
+        image: "/testimonial-1.jpg",
+      },
+      {
+        name: "Michael Chen",
+        role: "Freelancer",
+        company: "Independent Consultant",
+        content: "The best scheduling tool I've ever used. Simple yet powerful. I can manage multiple clients effortlessly, and the time zone converter feature has saved me from countless scheduling mishaps with international clients.",
+        rating: 4,
+        image: "/testimonial-2.jpg",
+      },
+      {
+        name: "Lisa Thompson",
+        role: "Event Coordinator",
+        company: "Eventful Experiences",
+        content: "Planning events has never been easier. A must-have tool for anyone in the events industry! The ability to create multiple event templates and share availability with vendors has streamlined my entire workflow.",
+        rating: 5,
+        image: "/testimonial-3.jpg",
+      },
+      {
+        name: "David Lee",
+        role: "Startup Founder",
+        company: "InnovateTech",
+        content: "Incredible UI and seamless sync between devices. This tool has saved our team countless hours of back-and-forth. The integration with our existing project management tools creates a truly unified experience.",
+        rating: 4,
+        image: "/testimonial-4.jpg",
+      },
+    ],
+  };
+  
+  export const calltoactionContent = {
+    title: {
+      lines: [
+        { text: "Ready to"},
+        { text: "Transform Your" },
+        { text: "Scheduling Experience?" },
+      ],
+    },
+    description: "Join thousands of professionals who have already optimized their time management.",
+    button: {
+      text: "Get Started",
+      href: "/auth/signup",
+    },
+  };
+  

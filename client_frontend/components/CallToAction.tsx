@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { calltoactionContent } from "@/lib/content/calltoaction";
+import { homeContent } from "@/lib/content/home";
 
 const CallToAction = () => {
   return (
@@ -20,13 +20,13 @@ const CallToAction = () => {
           className="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-3xl mx-auto"
         >
           <span className="block text-pink-200">
-            {calltoactionContent.title.lines[0].text}
+            {homeContent.ctaHeading1}
           </span>
           <span className="block text-white">
-            {calltoactionContent.title.lines[1].text}
+            {homeContent.ctaHeading2}
           </span>
           <span className="block text-indigo-200">
-            {calltoactionContent.title.lines[2].text}
+            {homeContent.ctaHeading3}
           </span>
         </motion.h2>
 
@@ -36,7 +36,7 @@ const CallToAction = () => {
           transition={{ duration: 1.2, delay: 0.5 }}
           className="text-lg md:text-xl text-indigo-100 mb-8 max-w-2xl mx-auto"
         >
-          {calltoactionContent.description}
+          {homeContent.ctaDescription}
         </motion.p>
 
         <motion.div
@@ -48,10 +48,10 @@ const CallToAction = () => {
           className="w-full sm:w-auto"
         >
           <Link
-            href={calltoactionContent.button.href}
+            href={homeContent.ctaActionHref}
             className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-full shadow-lg font-medium hover:bg-gray-100 transition-all hover:shadow-2xl"
           >
-            {calltoactionContent.button.text}{" "}
+            {homeContent.ctaActionLabel}{" "}
             <ChevronRight className="w-5 h-5" />
           </Link>
         </motion.div>

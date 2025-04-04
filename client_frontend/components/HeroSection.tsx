@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { heroContent } from "@/lib/content/hero";
+import { homeContent } from "@/lib/content/home";
 
 const HeroSection: React.FC = () => {
   const [text, setText] = useState("");
-  const fullText = heroContent.animationText.fullText;
+  const fullText = homeContent.heroTitle;
   const speed = 100;
 
   useEffect(() => {
@@ -46,23 +46,23 @@ const HeroSection: React.FC = () => {
           ))}
         </h1>
         <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 md:mb-12 max-w-4xl mx-auto">
-          {heroContent.description}
+          {homeContent.heroDescription}
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href={heroContent.buttons[0].href}
+              href={homeContent.heroButtonHref1}
               className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-5 sm:px-6 md:px-8 py-3 sm:py-3 md:py-4 rounded-lg shadow-lg font-medium hover:bg-gray-100 transition-all"
             >
-              {heroContent.buttons[0].text} <ChevronRight className="w-5 h-5" />
+              {homeContent.heroButtonLabel1} <ChevronRight className="w-5 h-5" />
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href={heroContent.buttons[1].href}
+              href={homeContent.heroButtonHref2}
               className="flex items-center justify-center gap-2 bg-indigo-800/40 backdrop-blur-sm text-white px-5 sm:px-6 md:px-8 py-3 sm:py-3 md:py-4 rounded-lg font-medium hover:bg-indigo-800/50 transition-all"
             >
-              {heroContent.buttons[1].text}
+              {homeContent.heroButtonLabel2}
             </Link>
           </motion.div>
         </div>
