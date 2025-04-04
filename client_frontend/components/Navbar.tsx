@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, Calendar, ChevronDown } from "lucide-react";
-import { navbarContent } from "@/lib/content/navbar";
+import { navbarContent, navBarLinks } from "@/lib/content/navbar";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,20 +33,20 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     {
-      name: navbarContent.navLinks[0].name,
-      href: navbarContent.navLinks[0].href,
+      name: navBarLinks[0].name,
+      href: navBarLinks[0].href,
     },
     {
-      name: navbarContent.navLinks[1].name,
-      href: navbarContent.navLinks[1].href,
+      name: navBarLinks[1].name,
+      href: navBarLinks[1].href,
     },
     {
-      name: navbarContent.navLinks[2].name,
-      href: navbarContent.navLinks[2].href,
+      name: navBarLinks[2].name,
+      href: navBarLinks[2].href,
     },
     {
-      name: navbarContent.navLinks[3].name,
-      href: navbarContent.navLinks[3].href,
+      name: navBarLinks[3].name,
+      href: navBarLinks[3].href,
     },
   ];
 
@@ -60,33 +60,30 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 z-50 ${
-        scrolled
-          ? "bg-white text-gray-800 shadow-lg py-2"
-          : "bg-transparent text-white py-4"
-      } transition-all duration-300`}
+      className={`fixed w-full top-0 z-50 ${scrolled
+        ? "bg-white text-gray-800 shadow-lg py-2"
+        : "bg-transparent text-white py-4"
+        } transition-all duration-300`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href={navbarContent.logo.href} className="flex items-center">
+        <Link href={navbarContent.logoHref} className="flex items-center">
           <motion.div
             whileHover={{ rotate: 15 }}
             className="text-indigo-600 mr-2"
           >
             <Calendar
-              className={`w-6 h-6 ${
-                scrolled ? "text-indigo-600" : "text-white"
-              }`}
+              className={`w-6 h-6 ${scrolled ? "text-indigo-600" : "text-white"
+                }`}
             />
           </motion.div>
           <motion.span
-            className={`text-xl font-bold ${
-              scrolled ? "text-indigo-600" : "text-white"
-            }`}
+            className={`text-xl font-bold ${scrolled ? "text-indigo-600" : "text-white"
+              }`}
             whileHover={{ letterSpacing: "0.05em" }}
             transition={{ duration: 0.2 }}
           >
-            {navbarContent.logo.name}
+            {navbarContent.logoName}
           </motion.span>
         </Link>
 
@@ -101,11 +98,10 @@ const Navbar: React.FC = () => {
               >
                 <Link
                   href={link.href}
-                  className={`text-md font-medium relative ${
-                    scrolled
-                      ? "text-gray-700 hover:text-indigo-600"
-                      : "text-white hover:text-indigo-200"
-                  } transition-colors`}
+                  className={`text-md font-medium relative ${scrolled
+                    ? "text-gray-700 hover:text-indigo-600"
+                    : "text-white hover:text-indigo-200"
+                    } transition-colors`}
                 >
                   {link.name}
                 </Link>
@@ -114,25 +110,23 @@ const Navbar: React.FC = () => {
                   animate={{
                     width: hoveredLink === link.name ? "100%" : 0,
                   }}
-                  className={`absolute bottom-0 left-0 h-0.5 ${
-                    scrolled ? "bg-indigo-600" : "bg-white"
-                  }`}
+                  className={`absolute bottom-0 left-0 h-0.5 ${scrolled ? "bg-indigo-600" : "bg-white"
+                    }`}
                   transition={{ duration: 0.2 }}
                 />
               </motion.div>
             </div>
           ))}
-          <Link href={navbarContent.buttons.signIn.href} className="relative">
+          <Link href={navbarContent.buttonHref} className="relative">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`${
-                scrolled
-                  ? "bg-indigo-600 text-white"
-                  : "bg-white text-indigo-600"
-              } px-4 py-2 rounded-lg font-medium`}
+              className={`${scrolled
+                ? "bg-indigo-600 text-white"
+                : "bg-white text-indigo-600"
+                } px-4 py-2 rounded-lg font-medium`}
             >
-              {navbarContent.buttons.signIn.text}
+              {navbarContent.buttonText}
             </motion.button>
           </Link>
         </div>
@@ -142,9 +136,8 @@ const Navbar: React.FC = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-2 rounded-lg ${
-              scrolled ? "text-indigo-600" : "text-white"
-            }`}
+            className={`p-2 rounded-lg ${scrolled ? "text-indigo-600" : "text-white"
+              }`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>
@@ -181,7 +174,7 @@ const Navbar: React.FC = () => {
                   )}
                 </motion.div>
               ))}
-              <Link href={navbarContent.buttons.signIn.href}>
+              <Link href={navbarContent.buttonHref}>
                 <motion.button
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -189,7 +182,7 @@ const Navbar: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className="w-full mt-4 bg-indigo-600 text-white py-3 rounded-lg font-medium"
                 >
-                  {navbarContent.buttons.signIn.text}
+                  {navbarContent.buttonText}
                 </motion.button>
               </Link>
             </div>

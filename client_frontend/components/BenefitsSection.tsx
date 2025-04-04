@@ -6,17 +6,17 @@ import { homeContent, benefitsList } from "@/lib/content/home";
 
 const benefits = [
   {
-    text: benefitsList[0].text,
+    text: benefitsList[0].title,
     icon: Zap,
     description: benefitsList[0].description,
   },
   {
-    text: benefitsList[1].text,
+    text: benefitsList[1].title,
     icon: Smartphone,
     description: benefitsList[1].description,
   },
   {
-    text: benefitsList[2].text,
+    text: benefitsList[2].title,
     icon: Lock,
     description: benefitsList[2].description,
   },
