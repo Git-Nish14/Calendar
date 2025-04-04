@@ -1,10 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-const HeroSection = () => {
+const HeroSection: React.FC = () => {
+  const [text, setText] = useState("");
+  const fullText = "Revolutionize Your Schedule";
+  const speed = 100;
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index <= fullText.length) {
+        setText(fullText.substring(0, index));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, speed);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: -20 }}
@@ -14,7 +32,17 @@ const HeroSection = () => {
     >
       <div className="container mx-auto text-center px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Revolutionize Your <span className="text-indigo-200">Schedule</span>
+          {text.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.05, delay: index * 0.05 }}
+              className={char === " " ? "mr-2" : ""}
+            >
+              {char}
+            </motion.span>
+          ))}
         </h1>
         <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 md:mb-12 max-w-4xl mx-auto">
           A smart calendar platform designed for modern teams and professionals.

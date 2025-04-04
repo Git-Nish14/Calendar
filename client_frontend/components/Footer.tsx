@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Github, Linkedin, Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -9,12 +9,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-6 bg-white text-gray-700 border-t border-gray-200 relative">
-      <div className="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center justify-between relative gap-4">
-        {/* Copyright Text - Centered */}
+    <footer className="py-6 bg-white text-gray-700 border-t border-purple-500 relative">
+      <div className="container mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Copyright Text */}
         <div className="w-full md:w-auto text-center md:text-left">
           <p className="text-lg">
-            © {new Date().getFullYear()} Calendar App. All rights reserved by{" "}
+            © {new Date().getFullYear()} Calendo. All rights reserved by{" "}
             <Link
               target="_blank"
               href="https://www.linkedin.com/in/nishpatel14"
@@ -26,21 +26,46 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Contact Link */}
-        <div className="w-full md:w-auto text-center md:text-right">
+        {/* Social Icons */}
+        <div className="flex items-center justify-center gap-6">
+          <Link
+            href="https://github.com/Git-Nish14"
+            target="_blank"
+            aria-label="GitHub"
+            className="text-gray-700 hover:text-black transition-colors"
+          >
+            <Github size={24} />
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/nishpatel14"
+            target="_blank"
+            aria-label="LinkedIn"
+            className="text-blue-700 hover:text-blue-900 transition-colors"
+          >
+            <Linkedin size={24} />
+          </Link>
+          <Link
+            href="https://www.instagram.com/nish_p14"
+            target="_blank"
+            aria-label="Instagram"
+            className="text-pink-500 hover:text-pink-700 transition-colors"
+          >
+            <Instagram size={24} />
+          </Link>
           <Link
             href="/contact"
-            className="text-indigo-600 hover:text-indigo-800 transition-colors font-bold"
+            aria-label="Contact"
+            className="text-indigo-600 hover:text-indigo-800 transition-colors"
           >
-            Contact Us
+            <Mail size={24} />
           </Link>
         </div>
 
-        {/* Scroll to Top Button - Bottom Positioned for Mobile */}
+        {/* Scroll to Top Button */}
         <button
           onClick={scrollToTop}
           aria-label="Scroll to Top"
-          className="flex items-center justify-center bg-indigo-600 text-white w-10 h-10 rounded-full hover:bg-indigo-700 transition-colors fixed bottom-4 right-4 md:static md:mr-0"
+          className="flex items-center justify-center bg-indigo-600 text-white w-10 h-10 rounded-full hover:bg-indigo-700 transition-colors fixed bottom-4 right-4 md:static"
         >
           <ArrowUp size={20} />
         </button>

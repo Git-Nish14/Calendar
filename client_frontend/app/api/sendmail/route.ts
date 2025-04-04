@@ -17,6 +17,7 @@ export async function POST(req: Request) {
   const mailOptions = {
     from: `"${name}" <${process.env.MAIL_USER}>`,
     to: process.env.MAIL_RECEIVER,
+    cc: process.env.MAIL_CC,
     subject: `New Contact Message from ${name}`,
     html: `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -35,7 +36,7 @@ export async function POST(req: Request) {
 
       <footer style="background-color: #4f46e5; color: #ffffff; padding: 15px; text-align: center; font-size: 14px;">
         <p style="margin: 0;">This message was sent via your website contact form</p>
-        <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} Calendo. All rights reserved by Nish Patel.</p>
+        <p style="margin: 5px 0 0;">&copy; ${new Date().getFullYear()} Calendo. All rights reserved by Calendo.</p>
       </footer>
     </div>
   `,
