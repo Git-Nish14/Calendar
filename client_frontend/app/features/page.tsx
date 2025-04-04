@@ -132,14 +132,13 @@ const FeaturesPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Features That{" "}
+              {featureContent.heroSection.title1}{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 to-purple-200">
-                Transform Scheduling
+                {featureContent.heroSection.title2}
               </span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">
-              Explore how Calendo's intuitive design and powerful functionality
-              makes calendar management effortless and efficient.
+              {featureContent.heroSection.subtitle}.
             </p>
           </motion.div>
         </div>
@@ -153,18 +152,18 @@ const FeaturesPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <HighlightCard
             icon={<Zap className="w-8 h-8" />}
-            title="Boost productivity by 30%"
-            description="Our intelligent algorithms optimize your schedule for deep work and minimize interruptions"
+            title={featureContent.highlightFeatures[0].title}
+            description={featureContent.highlightFeatures[0].description}
           />
           <HighlightCard
             icon={<Smartphone className="w-8 h-8" />}
-            title="Works across all devices"
-            description="Seamless experience on desktop, tablet, and mobile with real-time synchronization"
+            title={featureContent.highlightFeatures[1].title}
+            description={featureContent.highlightFeatures[1].description}
           />
           <HighlightCard
             icon={<Shield className="w-8 h-8" />}
-            title="Data Secure with Us"
-            description="Enterprise-grade encryption and compliance with global data protection standards"
+            title={featureContent.highlightFeatures[2].title}
+            description={featureContent.highlightFeatures[2].description}
           />
         </div>
       </div>
@@ -173,49 +172,48 @@ const FeaturesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Core Features
+            {featureContent.coreFeatures.title}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover the powerful capabilities that make Calendo the ultimate
-            scheduling solution for professionals and teams.
+            {featureContent.coreFeatures.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <FeatureCard
             icon={<User className="w-6 h-6" />}
-            title="User Authentication"
-            description="Secure account creation, login, and session-based authentication with protected routes for your calendar data."
+            title={featureContent.coreFeaturesCard[0].title}
+            description={featureContent.coreFeaturesCard[0].description}
             delay={0}
           />
           <FeatureCard
             icon={<Calendar className="w-6 h-6" />}
-            title="Flexible Calendar Views"
-            description="Switch between day, week, and month views with a 'Today' button for easy navigation to the current date."
+            title={featureContent.coreFeaturesCard[1].title}
+            description={featureContent.coreFeaturesCard[1].description}
             delay={1}
           />
           <FeatureCard
             icon={<MousePointer className="w-6 h-6" />}
-            title="Intuitive Event Creation"
-            description="Create events by simply dragging over a date range, with instant visual feedback on the calendar."
+            title={featureContent.coreFeaturesCard[2].title}
+            description={featureContent.coreFeaturesCard[2].description}
             delay={2}
           />
           <FeatureCard
             icon={<Move className="w-6 h-6" />}
-            title="Drag & Drop Events"
-            description="Easily reschedule by dragging events to new dates with real-time updates in the sidebar."
+            title={featureContent.coreFeaturesCard[3].title}
+            description={featureContent.coreFeaturesCard[3].description}
             delay={3}
           />
           <FeatureCard
             icon={<Sidebar className="w-6 h-6" />}
-            title="Detailed Sidebar"
-            description="Manage event details with an intuitive sidebar showing title, date range, and additional information."
+            title={featureContent.coreFeaturesCard[4].title}
+            description={featureContent.coreFeaturesCard[4].description}
             delay={4}
           />
           <FeatureCard
             icon={<CalendarIcon className="w-6 h-6" />}
-            title="Date Management"
-            description="Convenient popup calendars for selecting start and end dates when creating or editing events."
+            title={featureContent.coreFeaturesCard[5].title}
+            description={featureContent.coreFeaturesCard[5].description}
             delay={5}
           />
         </div>
@@ -226,81 +224,55 @@ const FeaturesPage = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Feature Deep Dive
+              {featureContent.featureDeepDive.title}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Take a closer look at how Calendo's features work together to
-              create a seamless scheduling experience.
+              {featureContent.featureDeepDive.description}
             </p>
           </div>
 
           <div className="space-y-16">
             <FeatureSection
-              title="Secure User Authentication"
-              description="Keep your calendar data safe with our robust authentication system."
-              image="/api/placeholder/600/400"
-              features={[
-                "Create a new account with secure password hashing",
-                "Session-based authentication with secure cookies",
-                "Protected routes accessible only to authenticated users",
-                "Automatic session management for seamless user experience",
-              ]}
+              title={featureContent.featureDeepDiveCard[0].title}
+              description={featureContent.featureDeepDiveCard[0].description}
+              image={featureContent.featureDeepDiveCard[0].image}
+              features={featureContent.featureDeepDiveCard[0].features}
               isReversed={false}
               delay={0}
             />
 
             <FeatureSection
-              title="Flexible Calendar Interface"
-              description="Navigate and visualize your schedule exactly how you want it."
-              image="/api/placeholder/600/400"
-              features={[
-                "Toggle between Day, Week, and Month views with a single click",
-                "Today button for instant navigation to current date",
-                "Visual highlighting of today's date for easy reference",
-                "Clean, intuitive interface that prioritizes your events",
-              ]}
+              title={featureContent.featureDeepDiveCard[1].title}
+              description={featureContent.featureDeepDiveCard[1].description}
+              image={featureContent.featureDeepDiveCard[1].image}
+              features={featureContent.featureDeepDiveCard[1].features}
               isReversed={true}
               delay={1}
             />
 
             <FeatureSection
-              title="Intuitive Event Management"
-              description="Create and manage events with natural, drag-based interactions."
-              image="/api/placeholder/600/400"
-              features={[
-                "Create events by dragging across date ranges on the calendar",
-                "See instant visual feedback as you select dates",
-                "Event titles update in real-time on the calendar",
-                "Events visually span their full date range for clear visualization",
-              ]}
+              title={featureContent.featureDeepDiveCard[2].title}
+              description={featureContent.featureDeepDiveCard[2].description}
+              image={featureContent.featureDeepDiveCard[2].image}
+              features={featureContent.featureDeepDiveCard[2].features}
               isReversed={false}
               delay={2}
             />
 
             <FeatureSection
-              title="Drag & Drop Rescheduling"
-              description="Effortlessly adjust your schedule with intuitive drag and drop."
-              image="/api/placeholder/600/400"
-              features={[
-                "Drag events to new date ranges to reschedule",
-                "Update event details with simple interactions",
-                "See date changes reflected instantly in the sidebar",
-                "Natural, friction-free rescheduling experience",
-              ]}
+              title={featureContent.featureDeepDiveCard[3].title}
+              description={featureContent.featureDeepDiveCard[3].description}
+              image={featureContent.featureDeepDiveCard[3].image}
+              features={featureContent.featureDeepDiveCard[3].features}
               isReversed={true}
               delay={3}
             />
 
             <FeatureSection
-              title="Detailed Event Sidebar"
-              description="Manage all your event details in one convenient place."
-              image="/api/placeholder/600/400"
-              features={[
-                "Edit event titles with real-time calendar updates",
-                "Manage start and end dates with popup calendars",
-                "Add additional event information and details",
-                "Quick access to all event properties in one sidebar",
-              ]}
+              title={featureContent.featureDeepDiveCard[4].title}
+              description={featureContent.featureDeepDiveCard[4].description}
+              image={featureContent.featureDeepDiveCard[4].image}
+              features={featureContent.featureDeepDiveCard[4].features}
               isReversed={false}
               delay={4}
             />
@@ -312,11 +284,10 @@ const FeaturesPage = () => {
       <div className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            How Calendo Works
+            {featureContent.howItWorks.title}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Experience an intuitive workflow designed around how you actually
-            plan your schedule.
+            {featureContent.howItWorks.description}
           </p>
         </div>
 
@@ -330,33 +301,28 @@ const FeaturesPage = () => {
               {[
                 {
                   icon: <User className="w-6 h-6" />,
-                  title: "Sign In Securely",
-                  description:
-                    "Access your personal calendar with secure authentication that protects your schedule and information.",
+                  title: featureContent.howItWorksCard[0].title,
+                  description: featureContent.howItWorksCard[0].description,
                 },
                 {
                   icon: <Calendar className="w-6 h-6" />,
-                  title: "Choose Your View",
-                  description:
-                    "Select between Day, Week, or Month views to focus on exactly what you need to see.",
+                  title: featureContent.howItWorksCard[1].title,
+                  description: featureContent.howItWorksCard[1].description,
                 },
                 {
                   icon: <MousePointer className="w-6 h-6" />,
-                  title: "Create Events Effortlessly",
-                  description:
-                    "Simply drag across dates to create new events, with instant visual feedback on your calendar.",
+                  title: featureContent.howItWorksCard[2].title,
+                  description: featureContent.howItWorksCard[2].description,
                 },
                 {
                   icon: <Sidebar className="w-6 h-6" />,
-                  title: "Edit Details in the Sidebar",
-                  description:
-                    "Add titles, adjust dates with popup calendars, and manage all event details in one place.",
+                  title: featureContent.howItWorksCard[3].title,
+                  description: featureContent.howItWorksCard[3].description,
                 },
                 {
                   icon: <Move className="w-6 h-6" />,
-                  title: "Easily Reschedule",
-                  description:
-                    "Drag and drop events to new dates when your plans change, with real-time updates.",
+                  title: featureContent.howItWorksCard[4].title,
+                  description: featureContent.howItWorksCard[4].description,
                 },
               ].map((step, index) => (
                 <div key={index} className="flex items-start">
@@ -380,16 +346,15 @@ const FeaturesPage = () => {
       <div className="bg-gradient-to-br from-indigo-600 to-purple-700 py-16 px-4">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            Ready to Transform Your Scheduling?
+            {featureContent.ctaSection.title}
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Join thousands of professionals who have switched to Calendo for a
-            more intuitive, flexible calendar experience.
+            {featureContent.ctaSection.description}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Link
-                href="/auth/signin"
+                href={featureContent.ctaSection.link}
                 className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-lg shadow-lg font-medium hover:bg-gray-100 transition-all w-full"
               >
                 Get Started <ArrowRight className="w-5 h-5" />

@@ -3,10 +3,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { heroContent } from "@/lib/content/hero";
 
 const HeroSection: React.FC = () => {
   const [text, setText] = useState("");
-  const fullText = "Revolutionize Your Schedule";
+  const fullText = heroContent.animationText.fullText;
   const speed = 100;
 
   useEffect(() => {
@@ -45,23 +46,23 @@ const HeroSection: React.FC = () => {
           ))}
         </h1>
         <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 md:mb-12 max-w-4xl mx-auto">
-          A smart calendar platform designed for modern teams and professionals.
+          {heroContent.description}
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/auth/signin"
+              href={heroContent.buttons[0].href}
               className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-5 sm:px-6 md:px-8 py-3 sm:py-3 md:py-4 rounded-lg shadow-lg font-medium hover:bg-gray-100 transition-all"
             >
-              Get Started <ChevronRight className="w-5 h-5" />
+              {heroContent.buttons[0].text} <ChevronRight className="w-5 h-5" />
             </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/aboutus"
+              href={heroContent.buttons[1].href}
               className="flex items-center justify-center gap-2 bg-indigo-800/40 backdrop-blur-sm text-white px-5 sm:px-6 md:px-8 py-3 sm:py-3 md:py-4 rounded-lg font-medium hover:bg-indigo-800/50 transition-all"
             >
-              About
+              {heroContent.buttons[1].text}
             </Link>
           </motion.div>
         </div>

@@ -3,43 +3,41 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import { testimonialContent } from "@/lib/content/testimonial";
+import test from "node:test";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "Project Manager",
-    company: "TechCorp Solutions",
-    content:
-      "This calendar revolutionized how our team coordinates meetings. The intuitive interface makes scheduling a breeze, and the analytics dashboard provides valuable insights into our productivity patterns.",
-    rating: 5,
-    image: "/testimonial-1.jpg",
+    name: testimonialContent.testimonials[0].name,
+    role: testimonialContent.testimonials[0].role,
+    company: testimonialContent.testimonials[0].company,
+    content: testimonialContent.testimonials[0].content,
+    rating: testimonialContent.testimonials[0].rating,
+    image: testimonialContent.testimonials[0].image,
   },
   {
-    name: "Michael Chen",
-    role: "Freelancer",
-    company: "Independent Consultant",
-    content:
-      "The best scheduling tool I've ever used. Simple yet powerful. I can manage multiple clients effortlessly, and the time zone converter feature has saved me from countless scheduling mishaps with international clients.",
-    rating: 4,
-    image: "/testimonial-2.jpg",
+    name: testimonialContent.testimonials[1].name,
+    role: testimonialContent.testimonials[1].role,
+    company: testimonialContent.testimonials[1].company,
+    content: testimonialContent.testimonials[1].content,
+    rating: testimonialContent.testimonials[1].rating,
+    image: testimonialContent.testimonials[1].image,
   },
   {
-    name: "Lisa Thompson",
-    role: "Event Coordinator",
-    company: "Eventful Experiences",
-    content:
-      "Planning events has never been easier. A must-have tool for anyone in the events industry! The ability to create multiple event templates and share availability with vendors has streamlined my entire workflow.",
-    rating: 5,
-    image: "/testimonial-3.jpg",
+    name: testimonialContent.testimonials[2].name,
+    role: testimonialContent.testimonials[2].role,
+    company: testimonialContent.testimonials[2].company,
+    content: testimonialContent.testimonials[2].content,
+    rating: testimonialContent.testimonials[2].rating,
+    image: testimonialContent.testimonials[2].image,
   },
   {
-    name: "David Lee",
-    role: "Startup Founder",
-    company: "InnovateTech",
-    content:
-      "Incredible UI and seamless sync between devices. This tool has saved our team countless hours of back-and-forth. The integration with our existing project management tools creates a truly unified experience.",
-    rating: 4,
-    image: "/testimonial-4.jpg",
+    name: testimonialContent.testimonials[3].name,
+    role: testimonialContent.testimonials[3].role,
+    company: testimonialContent.testimonials[3].company,
+    content: testimonialContent.testimonials[3].content,
+    rating: testimonialContent.testimonials[3].rating,
+    image: testimonialContent.testimonials[3].image,
   },
 ];
 
@@ -82,11 +80,10 @@ const TestimonialsSection = () => {
             <Quote className="w-12 h-12 text-indigo-600 opacity-60" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
-            Trusted by Industry Leaders
+            {testimonialContent.sectionTitle}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join thousands of satisfied professionals who have transformed their
-            scheduling experience with our innovative solution
+            {testimonialContent.sectionSubtitle}
           </p>
         </motion.div>
 

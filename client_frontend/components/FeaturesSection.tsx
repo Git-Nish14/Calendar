@@ -1,50 +1,42 @@
-// This code is updated to match the reference color scheme
-
 "use client";
 import React, { useState } from "react";
 import { Calendar, Users, Shield, Share2, Zap, Clock } from "lucide-react";
-
+import { homeFeatureContent } from "@/lib/content/homefeature";
 const services = [
   {
-    icon: <Calendar className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: "Intelligent Calendar",
-    description:
-      "Dynamic views with AI-powered scheduling suggestions and time management insights.",
+    icon: <Calendar className="w-7 h-7 text-indigo-600" />,
+    title: homeFeatureContent.services[0].title,
+    description: homeFeatureContent.services[0].description,
     color: "indigo",
   },
   {
     icon: <Users className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: "Collaborative Workspaces",
-    description:
-      "Create dedicated team spaces with custom permissions and real-time presence indicators.",
+    title: homeFeatureContent.services[1].title,
+    description: homeFeatureContent.services[1].description,
     color: "indigo",
   },
   {
     icon: <Shield className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: "Enterprise Security",
-    description:
-      "End-to-end encryption with compliance certifications and detailed access logs.",
+    title: homeFeatureContent.services[2].title,
+    description: homeFeatureContent.services[2].description,
     color: "indigo",
   },
   {
     icon: <Share2 className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: "Smart Sharing",
-    description:
-      "Context-aware sharing options with customizable visibility and integration hooks.",
+    title: homeFeatureContent.services[3].title,
+    description: homeFeatureContent.services[3].description,
     color: "indigo",
   },
   {
     icon: <Zap className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: "Productivity Insights",
-    description:
-      "Visualize your productivity patterns with personalized optimization recommendations.",
+    title: homeFeatureContent.services[4].title,
+    description: homeFeatureContent.services[4].description,
     color: "indigo",
   },
   {
     icon: <Clock className="w-7 h-7 text-indigo-600" />, // Changed to match reference color
-    title: "Time Tracking",
-    description:
-      "Effortlessly track time spent on projects with automatic categorization and reporting.",
+    title: homeFeatureContent.services[5].title,
+    description: homeFeatureContent.services[5].description,
     color: "indigo",
   },
 ];
@@ -64,12 +56,11 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-indigo-800">
-            Elevate Your Productivity
+            {homeFeatureContent.section.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our cutting-edge features transform how you manage time and
-            collaborate, giving you the edge in today's fast-paced environment.
+            {homeFeatureContent.section.description}
           </p>
         </div>
 

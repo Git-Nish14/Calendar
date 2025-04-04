@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUp, Github, Linkedin, Instagram, Mail } from "lucide-react";
-
+import { footerContent } from "@/lib/content/footer";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -14,22 +14,23 @@ const Footer = () => {
         {/* Copyright Text */}
         <div className="w-full md:w-auto text-center md:text-left">
           <p className="text-lg">
-            © {new Date().getFullYear()} Calendo. All rights reserved by{" "}
+            {footerContent.copyright.text1} {new Date().getFullYear()}{" "}
+            {footerContent.copyright.text2}{" "}
             <Link
               target="_blank"
-              href="https://www.linkedin.com/in/nishpatel14"
+              href={footerContent.copyright.ownerLink}
+              rel="noopener noreferrer"
               className="text-purple-600 hover:text-purple-800 transition-colors font-bold"
             >
-              Nish Patel
+              {footerContent.copyright.ownerName}
             </Link>
-            .
           </p>
         </div>
 
         {/* Social Icons */}
         <div className="flex items-center justify-center gap-6">
           <Link
-            href="https://github.com/Git-Nish14"
+            href={footerContent.socialLinks[0].href}
             target="_blank"
             aria-label="GitHub"
             className="text-gray-700 hover:text-black transition-colors"
@@ -37,7 +38,7 @@ const Footer = () => {
             <Github size={24} />
           </Link>
           <Link
-            href="https://www.linkedin.com/in/nishpatel14"
+            href={footerContent.socialLinks[1].href}
             target="_blank"
             aria-label="LinkedIn"
             className="text-blue-700 hover:text-blue-900 transition-colors"
@@ -45,7 +46,7 @@ const Footer = () => {
             <Linkedin size={24} />
           </Link>
           <Link
-            href="https://www.instagram.com/nish_p14"
+            href={footerContent.socialLinks[2].href}
             target="_blank"
             aria-label="Instagram"
             className="text-pink-500 hover:text-pink-700 transition-colors"
@@ -53,7 +54,7 @@ const Footer = () => {
             <Instagram size={24} />
           </Link>
           <Link
-            href="/contact"
+            href={footerContent.socialLinks[3].href}
             aria-label="Contact"
             className="text-indigo-600 hover:text-indigo-800 transition-colors"
           >

@@ -2,25 +2,23 @@
 import React, { useState } from "react";
 import { CheckCircle, Zap, Smartphone, Lock } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import { benefitsContent } from "@/lib/content/benefit";
 
 const benefits = [
   {
-    text: "Boost productivity by 30%",
+    text: benefitsContent.benefits[0].text,
     icon: Zap,
-    description:
-      "Our intelligent algorithms optimize your schedule for deep work and minimize interruptions",
+    description: benefitsContent.benefits[0].description,
   },
   {
-    text: "Works across all devices",
+    text: benefitsContent.benefits[1].text,
     icon: Smartphone,
-    description:
-      "Seamless experience on desktop, tablet, and mobile with real-time synchronization",
+    description: benefitsContent.benefits[1].description,
   },
   {
-    text: "Data Secure with Us",
+    text: benefitsContent.benefits[2].text,
     icon: Lock,
-    description:
-      "Enterprise-grade encryption and compliance with global data protection standards",
+    description: benefitsContent.benefits[2].description,
   },
 ];
 
@@ -51,15 +49,15 @@ const BenefitsSection = () => {
 
               <div className="relative rounded-2xl overflow-hidden shadow-xl max-w-full lg:max-w-lg border border-gray-100 z-10">
                 <img
-                  src="/landing.png"
-                  alt="Calendar dashboard preview"
+                  src={benefitsContent.image.src}
+                  alt={benefitsContent.image.alt}
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/30 to-transparent"></div>
 
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-md">
                   <span className="text-sm font-semibold text-indigo-700">
-                    New Features
+                    {benefitsContent.image.label}
                   </span>
                 </div>
               </div>
@@ -73,16 +71,15 @@ const BenefitsSection = () => {
             }`}
           >
             <span className="inline-block px-4 py-1 bg-indigo-100 text-indigo-800 rounded-full font-medium text-sm mb-4">
-              Simplified Scheduling
+              {benefitsContent.section.subtitle}
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center lg:text-left">
-              Why Choose Our Calendar?
+              {benefitsContent.section.title}
             </h2>
 
             <p className="text-gray-600 mb-8 text-lg">
-              Our calendar solution helps you take control of your time with
-              powerful features designed for professionals.
+              {benefitsContent.section.description}
             </p>
 
             <div className="space-y-8">

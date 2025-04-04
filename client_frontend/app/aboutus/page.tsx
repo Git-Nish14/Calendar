@@ -8,6 +8,7 @@ import { Calendar, Clock, Users, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { aboutContent } from "@/lib/content/about";
 
 interface TimelineItemProps {
   year: string;
@@ -117,12 +118,10 @@ const AboutUs: React.FC = () => {
                 <Calendar className="w-8 h-8 text-white" />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Our Calendo Journey
+                {aboutContent.headerSection.title}
               </h1>
               <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                From a simple idea to revolutionize scheduling to a
-                comprehensive calendar platform built for modern teams and
-                professionals.
+                {aboutContent.headerSection.subtitle}
               </p>
             </motion.div>
           </div>
@@ -134,33 +133,33 @@ const AboutUs: React.FC = () => {
 
             {/* Timeline Items */}
             <TimelineItem
-              year="2022"
-              title="The Beginning"
-              description="Frustrated with the limitations of existing calendar tools, our founder Nish Patel began sketching ideas for a more intuitive scheduling platform while working remotely with teams across different time zones."
+              year={aboutContent.timeline[0].year}
+              title={aboutContent.timeline[0].title}
+              description={aboutContent.timeline[0].description}
               icon={<Clock className="w-5 h-5" />}
               position="left"
             />
 
             <TimelineItem
-              year="2023"
-              title="Building the Core"
-              description="Our team of passionate developers built the first prototype of Calendo, focusing on seamless team collaboration and integration with popular productivity tools. We gathered feedback from early users to refine our approach."
+              year={aboutContent.timeline[1].year}
+              title={aboutContent.timeline[1].title}
+              description={aboutContent.timeline[1].description}
               icon={<Users className="w-5 h-5" />}
               position="right"
             />
 
             <TimelineItem
-              year="2024"
-              title="Expanding Features"
-              description="Inspired by Notion's flexibility, we reimagined Calendo to include customizable views, powerful automation tools, and intelligent scheduling features that adapt to your work style."
+              year={aboutContent.timeline[2].year}
+              title={aboutContent.timeline[2].title}
+              description={aboutContent.timeline[2].description}
               icon={<Zap className="w-5 h-5" />}
               position="left"
             />
 
             <TimelineItem
-              year="Today"
-              title="Revolutionizing Scheduling"
-              description="Calendo has evolved into a comprehensive calendar platform that combines the intuitive interface of Notion with powerful scheduling capabilities, helping thousands of teams coordinate better and work more efficiently."
+              year={aboutContent.timeline[3].year}
+              title={aboutContent.timeline[3].title}
+              description={aboutContent.timeline[3].description}
               icon={<Calendar className="w-5 h-5" />}
               position="right"
             />
@@ -175,20 +174,13 @@ const AboutUs: React.FC = () => {
               className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12"
             >
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                Our Mission
+                {aboutContent.missionSection.title}
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                At Calendo, we believe that time is your most valuable resource.
-                Our mission is to help teams and individuals take control of
-                their schedules, reduce the friction of coordination, and create
-                space for what matters most.
+                {aboutContent.missionSection.description1}
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Inspired by the flexibility and intuitive design of Notion,
-                we've built a calendar platform that adapts to your unique
-                workflows instead of forcing you to adapt to rigid systems.
-                We're committed to continuous innovation and building tools that
-                genuinely enhance productivity without adding complexity.
+                {aboutContent.missionSection.description2}
               </p>
             </motion.div>
           </div>
@@ -203,7 +195,7 @@ const AboutUs: React.FC = () => {
             >
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">
-                  Meet Our Founders
+                  {aboutContent.teamSection.title}
                 </h2>
 
                 <div className="grid md:grid-cols-2 gap-8">
@@ -211,33 +203,30 @@ const AboutUs: React.FC = () => {
                   <div className="text-center">
                     <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden shadow-lg">
                       <img
-                        src="/profile-img.png"
+                        src={aboutContent.teamSection.founders[0].image}
                         alt="Nish Patel"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = `https://ui-avatars.com/api/?name=Nish+Patel&background=8B5CF6&color=fff`;
+                          target.src =
+                            aboutContent.teamSection.founders[0].fallbackImage;
                         }}
                       />
                     </div>
                     <h3 className="text-xl font-bold text-gray-800">
-                      Nish Patel
+                      {aboutContent.teamSection.founders[0].name}
                     </h3>
                     <p className="text-gray-600 mb-4">
-                      Founder & Lead Developer
+                      {aboutContent.teamSection.founders[0].role}
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                      Nish is passionate about building intuitive and powerful
-                      web applications. With expertise in React, Next.js, and
-                      TypeScript, he leads the development of Calendo with a
-                      focus on creating impactful solutions that enhance
-                      productivity and user experiences.
+                      {aboutContent.teamSection.founders[0].description}
                     </p>
                     <a
                       href="mailto:nishpatel.cse@gmail.com"
                       className="inline-block mt-4 text-indigo-600 font-medium hover:underline"
                     >
-                      nishpatel.cse@gmail.com
+                      {aboutContent.teamSection.founders[0].email}
                     </a>
                   </div>
 
@@ -245,33 +234,30 @@ const AboutUs: React.FC = () => {
                   <div className="text-center">
                     <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden shadow-lg">
                       <img
-                        src="/profile-img.png"
+                        src={aboutContent.teamSection.founders[1].image}
                         alt="Om Patel"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = `https://ui-avatars.com/api/?name=Alex+Rivera&background=6D28D9&color=fff`;
+                          target.src =
+                            aboutContent.teamSection.founders[1].fallbackImage;
                         }}
                       />
                     </div>
                     <h3 className="text-xl font-bold text-gray-800">
-                      Om Patel
+                      {aboutContent.teamSection.founders[1].name}
                     </h3>
                     <p className="text-gray-600 mb-4">
-                      Co-Founder & Lead Developer
+                      {aboutContent.teamSection.founders[1].role}
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                      Alex brings a wealth of experience in UX design and
-                      product strategy. Their background in cognitive psychology
-                      helps shape Calendo's intuitive interfaces and
-                      user-centric workflow designs that prioritize productivity
-                      without sacrificing simplicity.
+                      {aboutContent.teamSection.founders[1].description}
                     </p>
                     <a
                       href="mailto:alex.rivera@calendo.com"
                       className="inline-block mt-4 text-indigo-600 font-medium hover:underline"
                     >
-                      alex.rivera@calendo.com
+                      {aboutContent.teamSection.founders[1].email}
                     </a>
                   </div>
                 </div>
@@ -287,10 +273,11 @@ const AboutUs: React.FC = () => {
             className="text-center"
           >
             <Link
-              href="/"
+              href={aboutContent.ctaSection.link}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-700 rounded-full shadow-lg font-medium hover:bg-gray-100 transition-all"
             >
-              Back to Home <ArrowRight className="w-4 h-4" />
+              {aboutContent.ctaSection.buttonText}{" "}
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>

@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const featureContent = {
     heroSection: {
       title1: "Features That",
@@ -18,7 +20,11 @@ export const featureContent = {
         description: "Enterprise-grade encryption and compliance with global data protection standards."
       }
     ],
-    coreFeatures: [
+    coreFeatures:{
+        title: "Core Features",
+        description: "Discover the powerful capabilities that make Calendo the ultimate scheduling solution for professionals and teams."
+    },
+    coreFeaturesCard: [
       {
         title: "User Authentication",
         description: "Secure account creation, login, and session-based authentication with protected routes for your calendar data."
@@ -44,7 +50,11 @@ export const featureContent = {
         description: "Convenient popup calendars for selecting start and end dates when creating or editing events."
       }
     ],
-    featureDeepDive: [
+    featureDeepDive: {
+        title:"Feature Deep Dive",
+        description:"Take a closer look at how Calendo's features work together to create a seamless scheduling experience.",
+    },
+    featureDeepDiveCard: [
       {
         title: "Secure User Authentication",
         description: "Keep your calendar data safe with our robust authentication system.",
@@ -101,7 +111,11 @@ export const featureContent = {
         ]
       }
     ],
-    howItWorks: [
+    howItWorks: {
+        title: "How Calendo Works",
+        description: "Experience an intuitive workflow designed around how you actually plan your schedule.",
+    },
+    howItWorksCard: [
       {
         title: "Sign In Securely",
         description: "Access your personal calendar with secure authentication that protects your schedule and information."

@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { contactContent } from "@/lib/content/contact";
 
 const Contact: React.FC = () => {
   const [result, setResult] = useState("");
-  const router = useRouter(); // useRouter hook for navigation
+  const router = useRouter();
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -49,14 +50,13 @@ const Contact: React.FC = () => {
         <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 text-gray-900">
           <div className="text-center mb-8">
             <h4 className="text-lg font-semibold text-indigo-600 mb-2">
-              {`Let's Connect`}
+              {contactContent.section.subtitle}
             </h4>
             <h2 className="text-4xl font-bold text-indigo-700 mb-4">
-              Contact Us
+              {contactContent.section.title}
             </h2>
             <p className="text-gray-700 mb-8">
-              Got questions, ideas, or just want to chat about your next
-              project? Send us a message and we’ll get back to you shortly.
+              {contactContent.section.description}
             </p>
           </div>
 

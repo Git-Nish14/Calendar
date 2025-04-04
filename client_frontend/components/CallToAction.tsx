@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { calltoactionContent } from "@/lib/content/calltoaction";
 
 const CallToAction = () => {
   return (
@@ -18,9 +19,15 @@ const CallToAction = () => {
           transition={{ duration: 0.8 }}
           className="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-3xl mx-auto"
         >
-          <span className="block text-pink-200">Ready to</span>
-          <span className="block text-white">Transform Your</span>
-          <span className="block text-indigo-200">Scheduling Experience?</span>
+          <span className="block text-pink-200">
+            {calltoactionContent.title.lines[0].text}
+          </span>
+          <span className="block text-white">
+            {calltoactionContent.title.lines[1].text}
+          </span>
+          <span className="block text-indigo-200">
+            {calltoactionContent.title.lines[2].text}
+          </span>
         </motion.h2>
 
         <motion.p
@@ -29,8 +36,7 @@ const CallToAction = () => {
           transition={{ duration: 1.2, delay: 0.5 }}
           className="text-lg md:text-xl text-indigo-100 mb-8 max-w-2xl mx-auto"
         >
-          Join thousands of professionals who have already optimized their time
-          management.
+          {calltoactionContent.description}
         </motion.p>
 
         <motion.div
@@ -42,10 +48,11 @@ const CallToAction = () => {
           className="w-full sm:w-auto"
         >
           <Link
-            href="/auth/signup"
+            href={calltoactionContent.button.href}
             className="flex items-center justify-center gap-2 bg-white text-indigo-700 px-8 py-4 rounded-full shadow-lg font-medium hover:bg-gray-100 transition-all hover:shadow-2xl"
           >
-            Get Started <ChevronRight className="w-5 h-5" />
+            {calltoactionContent.button.text}{" "}
+            <ChevronRight className="w-5 h-5" />
           </Link>
         </motion.div>
       </div>
