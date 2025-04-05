@@ -75,7 +75,7 @@ export const featureDeepDiveCard = [
     title: "Secure User Authentication",
     description:
       "Keep your calendar data safe with our robust authentication system.",
-    image: "/api/placeholder/600/400",
+    image: "/f1.jpg",
     features: [
       "Create a new account with secure password hashing",
       "Session-based authentication with secure cookies",
@@ -87,7 +87,7 @@ export const featureDeepDiveCard = [
     title: "Flexible Calendar Interface",
     description:
       "Navigate and visualize your schedule exactly how you want it.",
-    image: "/api/placeholder/600/400",
+    image: "/f2.png",
     features: [
       "Toggle between Day, Week, and Month views with a single click",
       "Today button for instant navigation to current date",
@@ -99,7 +99,7 @@ export const featureDeepDiveCard = [
     title: "Intuitive Event Management",
     description:
       "Create and manage events with natural, drag-based interactions.",
-    image: "/api/placeholder/600/400",
+    image: "/f3.jpg",
     features: [
       "Create events by dragging across date ranges on the calendar",
       "See instant visual feedback as you select dates",
@@ -111,7 +111,7 @@ export const featureDeepDiveCard = [
     title: "Drag & Drop Rescheduling",
     description:
       "Effortlessly adjust your schedule with intuitive drag and drop.",
-    image: "/api/placeholder/600/400",
+    image: "/f5.png",
     features: [
       "Drag events to new date ranges to reschedule",
       "Update event details with simple interactions",
@@ -122,7 +122,7 @@ export const featureDeepDiveCard = [
   {
     title: "Detailed Event Sidebar",
     description: "Manage all your event details in one convenient place.",
-    image: "/api/placeholder/600/400",
+    image: "/f4.jpg",
     features: [
       "Edit event titles with real-time calendar updates",
       "Manage start and end dates with popup calendars",

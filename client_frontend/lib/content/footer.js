@@ -1,6 +1,6 @@
 export const footerContent = {
   copyrightText1: "©",
-  copyrightText2: "2025 Calendo. All rights reserved by ",
+  copyrightText2: "Calendo. All rights reserved by ",
   copyrightOwnerName: "Nish Patel",
   copyrightOwnerLink: "https://www.linkedin.com/in/nishpatel14",
   github: "https://github.com/Git-Nish14",

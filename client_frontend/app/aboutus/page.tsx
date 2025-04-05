@@ -31,15 +31,17 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
   return (
     <div
       ref={itemRef}
-      className={`flex w-full mb-16 ${position === "right" ? "justify-start" : "justify-end"
-        }`}
+      className={`flex w-full mb-16 ${
+        position === "right" ? "justify-start" : "justify-end"
+      }`}
     >
       <motion.div
         initial={{ opacity: 0, x: position === "left" ? 50 : -50 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className={`w-full md:w-5/12 ${position === "right" ? "md:ml-10" : "md:mr-10"
-          }`}
+        className={`w-full md:w-5/12 ${
+          position === "right" ? "md:ml-10" : "md:mr-10"
+        }`}
       >
         <div className="p-6 bg-white rounded-xl shadow-lg">
           <div className="flex items-center mb-4">
@@ -196,9 +198,9 @@ const AboutUs: React.FC = () => {
                   {aboutContent.teamTitle}
                 </h2>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-1 gap-8">
                   {/* First Founder */}
-                  <div className="text-center">
+                  {/* <div className="text-center">
                     <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden shadow-lg">
                       <img
                         src={founders[0].image}
@@ -206,17 +208,14 @@ const AboutUs: React.FC = () => {
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src =
-                            founders[0].fallbackImage;
+                          target.src = founders[0].fallbackImage;
                         }}
                       />
                     </div>
                     <h3 className="text-xl font-bold text-gray-800">
                       {founders[0].name}
                     </h3>
-                    <p className="text-gray-600 mb-4">
-                      {founders[0].role}
-                    </p>
+                    <p className="text-gray-600 mb-4">{founders[0].role}</p>
                     <p className="text-gray-700 leading-relaxed">
                       {founders[0].description}
                     </p>
@@ -226,7 +225,15 @@ const AboutUs: React.FC = () => {
                     >
                       {founders[0].email}
                     </a>
-                  </div>
+                    <a
+                      href="https://nish.techifive.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block ml-4 mt-4 text-indigo-600 font-medium hover:underline"
+                    >
+                      Visit My Portfolio
+                    </a>
+                  </div> */}
 
                   {/* Second Founder */}
                   <div className="text-center">
@@ -237,25 +244,30 @@ const AboutUs: React.FC = () => {
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src =
-                            founders[1].fallbackImage;
+                          target.src = founders[1].fallbackImage;
                         }}
                       />
                     </div>
                     <h3 className="text-xl font-bold text-gray-800">
                       {founders[1].name}
                     </h3>
-                    <p className="text-gray-600 mb-4">
-                      {founders[1].role}
-                    </p>
+                    <p className="text-gray-600 mb-4">{founders[1].role}</p>
                     <p className="text-gray-700 leading-relaxed">
                       {founders[1].description}
                     </p>
                     <a
                       href="mailto:alex.rivera@calendo.com"
-                      className="inline-block mt-4 text-indigo-600 font-medium hover:underline"
+                      className="inline-block ml-4 mt-4 text-indigo-600 font-medium hover:underline"
                     >
                       {founders[1].email}
+                    </a>
+                    <a
+                      href="https://om.techifive.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block ml-4 mt-4 text-indigo-600 font-medium hover:underline"
+                    >
+                      Visit My Portfolio
                     </a>
                   </div>
                 </div>
@@ -274,8 +286,7 @@ const AboutUs: React.FC = () => {
               href={aboutContent.ctaLink}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-700 rounded-full shadow-lg font-medium hover:bg-gray-100 transition-all"
             >
-              {aboutContent.ctaButtonText}{" "}
-              <ArrowRight className="w-4 h-4" />
+              {aboutContent.ctaButtonText} <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>

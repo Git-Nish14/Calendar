@@ -4,8 +4,8 @@ import { ApolloProviderWrapper } from "./ApolloProviderWrapper";
 import { SocketProviderWrapper } from "./SocketProviderWrapper";
 
 export const metadata = {
-  title: "Calendo | Nish Patel",
-  description: "Notion Calendar Clone designed by Nish Patel",
+  title: "Calendo",
+  description: "Notion Calendar Clone designed by Nish Patel and Om Patel",
 };
 
 export default function RootLayout({

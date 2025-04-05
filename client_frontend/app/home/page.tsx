@@ -7,6 +7,7 @@ import Calendar from "../../components/calendar";
 import EventList from "../../components/eventList";
 import Form from "../../components/form";
 import { SocketContext } from "@/app/SocketProviderWrapper";
+import CalendoLoader from "@/components/Loading";
 
 interface EventFormData {
   id: string;
@@ -52,7 +53,7 @@ export default function CalendarPage() {
     };
   }, [socket, refetch]);
 
-  if (loading) return <>Loading...</>;
+  if (loading) return <CalendoLoader />;
   if (error) return <p className="text-red-500">{error.message}</p>;
 
   const events =

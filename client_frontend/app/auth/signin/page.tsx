@@ -294,7 +294,7 @@ const Login: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.7 }}
               >
                 <Link
-                  href="/auth/forgot-password"
+                  href="/forgetpassword"
                   className="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors font-medium"
                 >
                   Forgot password?

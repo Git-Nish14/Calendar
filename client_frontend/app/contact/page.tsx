@@ -45,8 +45,8 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-purple-700 p-6 pb-0 text-white">
-        <Navbar />
+      <Navbar />
+      <section className="pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 to-purple-700 p-6 pb-0 text-white">
         <div className="w-full max-w-4xl bg-white rounded-3xl shadow-2xl p-8 md:p-12 text-gray-900">
           <div className="text-center mb-8">
             <h4 className="text-lg font-semibold text-indigo-600 mb-2">
