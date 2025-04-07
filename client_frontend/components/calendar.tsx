@@ -24,7 +24,9 @@ export default function Calendar({
   setGotoDate,
 }: any) {
   const calendarRef = useRef<FullCalendar | null>(null);
-  const [updateEvent] = useMutation(UPDATE_EVENT);
+  const [updateEvent] = useMutation(UPDATE_EVENT, {
+    fetchPolicy: "network-only",
+  });
   const socket = useContext(SocketContext);
 
   useEffect(() => {
@@ -100,7 +102,7 @@ export default function Calendar({
             handleEventResize(eventResizeInfo, updateEvent, refetch, socket)
           }
           initialView={
-            window.innerWidth < 768 ? "dayGridMonth" : "multiMonthYear"
+            window.innerWidth < 768 ? "dayGridMonth" : "dayGridMonth"
           }
           contentHeight="auto"
           dayHeaderFormat={{
@@ -110,7 +112,7 @@ export default function Calendar({
           }}
           eventContent={(arg) => (
             <div
-              className="whitespace-normal break-words text-xs max-w-full overflow-hidden"
+              className="whitespace-normal break-words text-xs max-w-full"
               style={{ whiteSpace: "normal" }}
             >
               {arg.event.title}

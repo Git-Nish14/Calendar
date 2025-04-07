@@ -7,7 +7,7 @@ export const aboutContent = {
     "At Calendo, we believe that time is your most valuable resource. Our mission is to help teams and individuals take control of their schedules, reduce the friction of coordination, and create space for what matters most.",
   missionDescription2:
     "Inspired by the flexibility and intuitive design of Notion, we've built a calendar platform that adapts to your unique workflows instead of forcing you to adapt to rigid systems. We're committed to continuous innovation and building tools that genuinely enhance productivity without adding complexity.",
-  teamTitle: "Meet Our Creater",
+  teamTitle: "Meet Our Creator",
   ctaButtonText: "Back to Home",
   ctaLink: "/",
 };

@@ -82,7 +82,6 @@ const Signup: React.FC = () => {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 relative overflow-hidden">
       {/* Unique background pattern */}
-      <Navbar />
       {pattern.map((dot, index) => (
         <motion.div
           key={index}

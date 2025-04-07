@@ -67,7 +67,7 @@ export default function CalendarPage() {
 
   return (
     <div className="page-container flex flex-col md:flex-row min-h-screen bg-gray-100 overflow-y-auto">
-      <div className="sidebar w-full md:w-1/4 p-4 bg-white shadow-lg rounded-lg flex flex-col overflow-y-auto mb-4 md:mb-0">
+      <div className="sidebar w-full md:w-1/3 p-4 bg-white shadow-lg rounded-lg flex flex-col overflow-y-auto mb-4 md:mb-0">
         <Form
           data={data}
           selectedEvent={selectedEvent}
@@ -84,7 +84,7 @@ export default function CalendarPage() {
         />
       </div>
 
-      <div className="main-content w-full md:w-3/4 p-4">
+      <div className="main-content w-full p-4">
         <Calendar
           events={events}
           data={data}

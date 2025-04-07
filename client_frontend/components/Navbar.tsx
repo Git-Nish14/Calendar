@@ -60,10 +60,11 @@ const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 z-50 ${scrolled
-        ? "bg-white text-gray-800 shadow-lg py-2"
-        : "bg-transparent text-white py-4"
-        } transition-all duration-300`}
+      className={`fixed w-full top-0 z-50 ${
+        scrolled
+          ? "bg-white text-gray-800 shadow-lg py-2"
+          : "bg-transparent text-white py-4"
+      } transition-all duration-300`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
@@ -73,13 +74,15 @@ const Navbar: React.FC = () => {
             className="text-indigo-600 mr-2"
           >
             <Calendar
-              className={`w-6 h-6 ${scrolled ? "text-indigo-600" : "text-white"
-                }`}
+              className={`w-6 h-6 ${
+                scrolled ? "text-indigo-600" : "text-white"
+              }`}
             />
           </motion.div>
           <motion.span
-            className={`text-xl font-bold ${scrolled ? "text-indigo-600" : "text-white"
-              }`}
+            className={`text-xl font-bold ${
+              scrolled ? "text-indigo-600" : "text-white"
+            }`}
             whileHover={{ letterSpacing: "0.05em" }}
             transition={{ duration: 0.2 }}
           >
@@ -98,10 +101,11 @@ const Navbar: React.FC = () => {
               >
                 <Link
                   href={link.href}
-                  className={`text-md font-medium relative ${scrolled
-                    ? "text-gray-700 hover:text-indigo-600"
-                    : "text-white hover:text-indigo-200"
-                    } transition-colors`}
+                  className={`text-md font-medium relative ${
+                    scrolled
+                      ? "text-gray-700 hover:text-indigo-600"
+                      : "text-white hover:text-indigo-200"
+                  } transition-colors`}
                 >
                   {link.name}
                 </Link>
@@ -110,8 +114,9 @@ const Navbar: React.FC = () => {
                   animate={{
                     width: hoveredLink === link.name ? "100%" : 0,
                   }}
-                  className={`absolute bottom-0 left-0 h-0.5 ${scrolled ? "bg-indigo-600" : "bg-white"
-                    }`}
+                  className={`absolute bottom-0 left-0 h-0.5 ${
+                    scrolled ? "bg-indigo-600" : "bg-white"
+                  }`}
                   transition={{ duration: 0.2 }}
                 />
               </motion.div>
@@ -121,10 +126,11 @@ const Navbar: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`${scrolled
-                ? "bg-indigo-600 text-white"
-                : "bg-white text-indigo-600"
-                } px-4 py-2 rounded-lg font-medium`}
+              className={`${
+                scrolled
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white text-indigo-600"
+              } px-4 py-2 rounded-lg font-medium`}
             >
               {navbarContent.buttonText}
             </motion.button>
@@ -136,8 +142,9 @@ const Navbar: React.FC = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className={`p-2 rounded-lg ${scrolled ? "text-indigo-600" : "text-white"
-              }`}
+            className={`p-2 rounded-lg ${
+              scrolled ? "text-indigo-600" : "text-white"
+            }`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </motion.button>
