@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { SIGNIN } from "@/graphql/mutations";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 import {
   EyeIcon,
   EyeOffIcon,
@@ -45,12 +46,40 @@ const Login: React.FC = () => {
           secure: true,
           sameSite: "strict",
         });
-        router.push("/home");
+        // Show success toast
+        toast.success("Successfully signed in! Redirecting...", {
+          duration: 3000,
+          position: "top-center",
+          icon: "🎉",
+        });
+
+        // Short delay before redirecting to give toast time to be seen
+        setTimeout(() => {
+          router.push("/home");
+        }, 1000);
       }
     } catch (err) {
       console.error("Login Error:", err);
+      // Show error toast with specific message if available
+      const errorMessage = err.message || "Failed to sign in. Please try again.";
+      toast.error(errorMessage, {
+        duration: 4000,
+        position: "top-center",
+        icon: "❌",
+      });
     }
   };
+
+  // Show toast for GraphQL errors returned from the mutation
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(error.message || "An error occurred during sign in", {
+  //       duration: 4000,
+  //       position: "top-center",
+  //       icon: "❌",
+  //     });
+  //   }
+  // }, [error]);
 
   const handleFocus = (field: string) => {
     setFormFocus(field);
@@ -80,6 +109,9 @@ const Login: React.FC = () => {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 relative overflow-hidden">
+      {/* Toast container */}
+      <Toaster />
+
       {/* Unique background pattern */}
       {pattern.map((dot, index) => (
         <motion.div
@@ -166,18 +198,6 @@ const Login: React.FC = () => {
               Access your personal calendar and events
             </motion.p>
 
-            {error && (
-              <motion.div
-                className="flex items-center gap-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg mb-6 text-sm"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.3 }}
-              >
-                <AlertCircleIcon className="w-5 h-5 flex-shrink-0" />
-                <p>{error.message}</p>
-              </motion.div>
-            )}
-
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <motion.div
                 className="space-y-1.5"
@@ -190,11 +210,10 @@ const Login: React.FC = () => {
                   Email
                 </label>
                 <div
-                  className={`relative transition-all duration-300 ${
-                    formFocus === "email"
-                      ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
-                      : ""
-                  }`}
+                  className={`relative transition-all duration-300 ${formFocus === "email"
+                    ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
+                    : ""
+                    }`}
                 >
                   <input
                     type="email"
@@ -242,11 +261,10 @@ const Login: React.FC = () => {
                   Password
                 </label>
                 <div
-                  className={`relative transition-all duration-300 ${
-                    formFocus === "password"
-                      ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
-                      : ""
-                  }`}
+                  className={`relative transition-all duration-300 ${formFocus === "password"
+                    ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
+                    : ""
+                    }`}
                 >
                   <input
                     type={showPassword ? "text" : "password"}

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { SIGNUP } from "@/graphql/mutations";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 import {
   EyeIcon,
   EyeOffIcon,
@@ -15,6 +16,7 @@ import {
   MailIcon,
   AlertCircleIcon,
   UserIcon,
+  CheckCircleIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -46,10 +48,52 @@ const Signup: React.FC = () => {
           secure: true,
           sameSite: "strict",
         });
-        router.push("/home");
+        // Show success toast
+        toast.success(
+          <div className="flex items-center gap-2">
+            <CheckCircleIcon className="w-5 h-5" />
+            <span>Account created successfully!</span>
+          </div>,
+          {
+            duration: 4000,
+            style: {
+              background: "#10B981",
+              color: "#FFFFFF",
+              padding: "12px 16px",
+            },
+            iconTheme: {
+              primary: "#FFFFFF",
+              secondary: "#10B981",
+            },
+          }
+        );
+        // Redirect after a short delay
+        setTimeout(() => {
+          router.push("/home");
+        }, 1000);
       }
     } catch (err) {
       console.error("Signup Error:", err);
+      // Show error toast with specific message if available
+      const errorMessage = err.message || "Failed to create account. Please try again.";
+      toast.error(
+        <div className="flex items-center gap-2">
+          <AlertCircleIcon className="w-5 h-5" />
+          <span>{errorMessage}</span>
+        </div>,
+        {
+          duration: 5000,
+          style: {
+            background: "#EF4444",
+            color: "#FFFFFF",
+            padding: "12px 16px",
+          },
+          iconTheme: {
+            primary: "#FFFFFF",
+            secondary: "#EF4444",
+          },
+        }
+      );
     }
   };
 
@@ -79,8 +123,35 @@ const Signup: React.FC = () => {
     setPattern(newPattern);
   }, []);
 
+  // Display toast for Apollo errors
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(
+  //       <div className="flex items-center gap-2">
+  //         <AlertCircleIcon className="w-5 h-5" />
+  //         <span>{error.message}</span>
+  //       </div>,
+  //       {
+  //         duration: 5000,
+  //         style: {
+  //           background: "#EF4444",
+  //           color: "#FFFFFF",
+  //           padding: "12px 16px",
+  //         },
+  //         iconTheme: {
+  //           primary: "#FFFFFF",
+  //           secondary: "#EF4444",
+  //         },
+  //       }
+  //     );
+  //   }
+  // }, [error]);
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 relative overflow-hidden">
+      {/* Toast container */}
+      <Toaster position="top-center" toastOptions={{ className: "rounded-xl" }} />
+
       {/* Unique background pattern */}
       {pattern.map((dot, index) => (
         <motion.div
@@ -167,18 +238,6 @@ const Signup: React.FC = () => {
               Join Calendo and manage your schedule
             </motion.p>
 
-            {error && (
-              <motion.div
-                className="flex items-center gap-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/30 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg mb-6 text-sm"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.3 }}
-              >
-                <AlertCircleIcon className="w-5 h-5 flex-shrink-0" />
-                <p>{error.message}</p>
-              </motion.div>
-            )}
-
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <motion.div
                 className="space-y-1.5"
@@ -191,11 +250,10 @@ const Signup: React.FC = () => {
                   First Name
                 </label>
                 <div
-                  className={`relative transition-all duration-300 ${
-                    formFocus === "firstName"
-                      ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
-                      : ""
-                  }`}
+                  className={`relative transition-all duration-300 ${formFocus === "firstName"
+                    ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
+                    : ""
+                    }`}
                 >
                   <input
                     type="text"
@@ -239,11 +297,10 @@ const Signup: React.FC = () => {
                   Last Name
                 </label>
                 <div
-                  className={`relative transition-all duration-300 ${
-                    formFocus === "lastName"
-                      ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
-                      : ""
-                  }`}
+                  className={`relative transition-all duration-300 ${formFocus === "lastName"
+                    ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
+                    : ""
+                    }`}
                 >
                   <input
                     type="text"
@@ -287,11 +344,10 @@ const Signup: React.FC = () => {
                   Email
                 </label>
                 <div
-                  className={`relative transition-all duration-300 ${
-                    formFocus === "email"
-                      ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
-                      : ""
-                  }`}
+                  className={`relative transition-all duration-300 ${formFocus === "email"
+                    ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
+                    : ""
+                    }`}
                 >
                   <input
                     type="email"
@@ -339,11 +395,10 @@ const Signup: React.FC = () => {
                   Password
                 </label>
                 <div
-                  className={`relative transition-all duration-300 ${
-                    formFocus === "password"
-                      ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
-                      : ""
-                  }`}
+                  className={`relative transition-all duration-300 ${formFocus === "password"
+                    ? "ring-2 ring-indigo-400 dark:ring-indigo-600 shadow-sm"
+                    : ""
+                    }`}
                 >
                   <input
                     type={showPassword ? "text" : "password"}
