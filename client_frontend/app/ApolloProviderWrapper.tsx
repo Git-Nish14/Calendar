@@ -15,8 +15,9 @@ export const ApolloProviderWrapper = ({
 }: {
   children: React.ReactNode;
 }) => {
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const httpLink = createHttpLink({
-    uri: "http://localhost:4000/graphql",
+    uri: backendUrl || "http://localhost:4000/graphql",
   });
 
   const authLink = setContext((_, { headers }) => {
