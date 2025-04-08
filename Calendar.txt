@@ -1,12 +1,1 @@
-This documentation is for calendar app
 
-
-DATABASE_URL="mongodb+srv://om:0NmqDAfXDwc8PYfE@cluster0.e2llb.mongodb.net/calender?retryWrites=true&w=majority&appName=Cluster0"
-JWT_SECRET="your_jwt_secret"
-
-# nZulCEkJ5PsFkl6Y
-
-# Nishpatel
-
-
-github repo calendar 
